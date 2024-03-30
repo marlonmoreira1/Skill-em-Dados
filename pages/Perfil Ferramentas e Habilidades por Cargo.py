@@ -7,7 +7,7 @@ import pandas as pd
 from Processamento import padronizar_ferramentas, padronizar_cargo, padronizar_xp
 st.set_page_config(page_title='Dados Sobre Dados',layout='wide')
 
-credentials_file = "dadossobredados-e5a357810ee8.json"
+credentials_file = "privado/dadossobredados-e5a357810ee8.json"
 
 with open(credentials_file) as json_file:
     json_data = json.load(json_file)
