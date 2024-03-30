@@ -66,7 +66,7 @@ UNNEST(SPLIT(complemento, ',')) AS complemento
 
 def make_heatmap(df,columny,column,titulo,label_y,labelx,xn,yn):    
 
-    df_filtro = df[df[columny] != 'Não Informado']
+    df_filtro = df[df[column] != 'Não Informado']
 
     contagem = df_filtro.groupby([columny, column])['job_id'].count().reset_index(name='contagem')
 
