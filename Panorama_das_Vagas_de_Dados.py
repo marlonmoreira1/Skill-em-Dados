@@ -250,11 +250,11 @@ coluna1,coluna2 = st.columns((1,1))
 
 with coluna1.container(border=True):
 
-    make_bar(new_hard_skills,'new_hard_skills','Ferramentas de Dados mais Demandadas no Mercado',1,15,15,22)
+    make_bar(new_hard_skills,'new_hard_skills','Ferramentas de Dados mais Demandadas no Mercado',1,13,12,22)
 
 with coluna2.container(border=True):
 
-    make_bar(complemento,'complemento','Ranking de Atividade de Dados mais Demandadas',2,14,12,22)    
+    make_bar(complemento,'complemento','Ranking de Atividade de Dados mais Demandadas',2,13,12,22)    
 
 coluna3,coluna4 = st.columns((1,1))
 
