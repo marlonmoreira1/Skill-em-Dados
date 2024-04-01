@@ -18,7 +18,7 @@ with open(credentials_file) as json_file:
 client = bigquery.Client(credentials=service_account.Credentials.from_service_account_info(json_data), project=json_data['project_id'])
 
 # Função para consultar os dados no BigQuery
-@st.cache_data(ttl=28801)
+@st.cache_data(ttl=28800)
 def consultar_dados_bigquery(consulta):
     query = consulta
     df = client.query(query).to_dataframe()
