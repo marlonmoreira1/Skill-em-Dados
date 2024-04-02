@@ -6,7 +6,7 @@ import plotly.express as px
 import pandas as pd
 from Processamento import identificar_categoria, padronizar_ferramentas, padronizar_xp, padronizar_cargo, padronizar_metodologia
 from Grafico import make_bar, make_pie,make_bar_with_no_slice
-#db-dtypes
+
 st.set_page_config(page_title='Dados Sobre Dados',layout='wide')
 
 credentials_file = "privado/dadossobredados-e5a357810ee8.json"
@@ -17,7 +17,7 @@ with open(credentials_file) as json_file:
 
 client = bigquery.Client(credentials=service_account.Credentials.from_service_account_info(json_data), project=json_data['project_id'])
 
-# Função para consultar os dados no BigQuery
+
 @st.cache_data(ttl=28800)
 def consultar_dados_bigquery(consulta):
     query = consulta
@@ -254,17 +254,17 @@ with coluna1.container(border=True):
 
 with coluna2.container(border=True):
 
-    make_bar(complemento,'complemento','Ranking de Atividade de Dados mais Demandadas',2,13,12,22)    
+    make_bar(complemento,'complemento','Ranking de Atividade de Dados mais Demandadas',2,13,11,22)    
 
 coluna3,coluna4 = st.columns((1,1))
 
 with coluna3.container(border=True):
 
-    make_bar_with_no_slice(graduacoes,'graduacoes','Graduações mais Citadas nas vagas',14,13,24)
+    make_bar(graduacoes,'graduacoes','Graduações mais Citadas nas vagas',3,14,13,24)
 
 with coluna4.container(border=True):    
 
-    make_bar_with_no_slice(soft_skills,'soft_skills','Soft Skills mais Demandas para Profissionais de Dados',12,12,20)
+    make_bar(soft_skills,'soft_skills','Soft Skills mais Demandas para Profissionais de Dados',4,12,12,20)
 
 
 coluna5, coluna6 = st.columns((1,1))
@@ -276,7 +276,7 @@ with coluna5.container(border=True):
     
 with coluna6.container(border=True):
 
-    make_bar_with_no_slice(vagas[(vagas['estado']!='nan')&(vagas['estado']!='Não Informado')&(vagas['estado']!='Remoto')],'estado','Ranking dos Estados com Mais Vagas',14,14,22)
+    make_bar_with_no_slice(vagas[(vagas['estado']!='nan')&(vagas['estado']!='Não Informado')&(vagas['estado']!='Remoto')],'estado','Ranking dos Estados com Mais Vagas',14,12,22)
 
 coluna8,coluna9,coluna10 = st.columns((1,1,1))
 
