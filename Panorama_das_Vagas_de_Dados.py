@@ -260,11 +260,11 @@ coluna3,coluna4 = st.columns((1,1))
 
 with coluna3.container(border=True):
 
-    make_bar_with_no_slice(graduacoes,'graduacoes','Graduações mais Citadas nas vagas',11,10,24)
+    make_bar_with_no_slice(graduacoes,'graduacoes','Graduações mais Citadas nas vagas',10,10,24)
 
 with coluna4.container(border=True):    
 
-    make_bar_with_no_slice(soft_skills,'soft_skills','Soft Skills mais Demandas para Profissionais de Dados',12,12,20)
+    make_bar_with_no_slice(soft_skills,'soft_skills','Soft Skills mais Demandas para Profissionais de Dados',13,11,20)
 
 
 coluna5, coluna6 = st.columns((1,1))
