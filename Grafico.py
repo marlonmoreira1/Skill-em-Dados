@@ -49,7 +49,10 @@ def make_pie(df,column,titulo,tf):
 	     title=titulo
 	     )          
 
-	fig.update_traces(textinfo='label+percent', hole=0.5,textfont_size=11)
+	fig.update_traces(textinfo='label+percent',
+			  hole=0.5,
+			  textfont_size=11,
+			  showlegend=False)
 
 	fig.update_layout(title_font_size=tf)		
 
