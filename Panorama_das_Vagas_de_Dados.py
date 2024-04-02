@@ -260,7 +260,7 @@ coluna3,coluna4 = st.columns((1,1))
 
 with coluna3.container(border=True):
 
-    make_bar_with_no_slice(graduacoes,'graduacoes','Graduações mais Citadas nas vagas',9,9,24)
+    make_bar_with_no_slice(graduacoes,'graduacoes','Graduações mais Citadas nas vagas',11,11,24)
 
 with coluna4.container(border=True):    
 
