@@ -260,11 +260,11 @@ coluna3,coluna4 = st.columns((1,1))
 
 with coluna3.container(border=True):
 
-    make_bar_with_no_slice(graduacoes,'graduacoes','Graduações mais Citadas nas vagas',15,13,24)
+    make_bar_with_no_slice(graduacoes,'graduacoes','Graduações mais Citadas nas vagas',14,13,24)
 
 with coluna4.container(border=True):    
 
-    make_bar_with_no_slice(soft_skills,'soft_skills','Soft Skills mais Demandas para Profissionais de Dados',14,12,20)
+    make_bar_with_no_slice(soft_skills,'soft_skills','Soft Skills mais Demandas para Profissionais de Dados',12,11,20)
 
 
 coluna5, coluna6 = st.columns((1,1))
@@ -272,11 +272,11 @@ coluna5, coluna6 = st.columns((1,1))
 with coluna5.container(border=True):
 
 
-    make_bar_with_no_slice(metodologia_trabalho,'metodologia_trabalho','Principais Metodologias Ágeis em Dados',13,15,18)
+    make_bar_with_no_slice(metodologia_trabalho,'metodologia_trabalho','Principais Metodologias Ágeis em Dados',14,14,18)
     
 with coluna6.container(border=True):
 
-    make_bar_with_no_slice(vagas[(vagas['estado']!='nan')&(vagas['estado']!='Não Informado')&(vagas['estado']!='Remoto')],'estado','Ranking dos Estados com Mais Vagas',13,15,22)
+    make_bar_with_no_slice(vagas[(vagas['estado']!='nan')&(vagas['estado']!='Não Informado')&(vagas['estado']!='Remoto')],'estado','Ranking dos Estados com Mais Vagas',14,14,22)
 
 coluna8,coluna9,coluna10 = st.columns((1,1,1))
 
