@@ -231,11 +231,11 @@ new_hard_skills = hard_skills[hard_skills['new_hard_skills'] != 'Não Informado'
 
 vagas['is_remote'] = vagas['is_remote'].map({True: 'Remoto', False: 'Presencial'})
 
+vagas['soft_skills'] = vagas['soft_skills'].map({'Capacidade de trabalhar de forma autônoma': 'Autonomia'})
+
 tipo_contrato['tipo_contrato'] = tipo_contrato['tipo_contrato'].fillna('Não Informado')
 
-
 tipo_ferramentas = st.sidebar.multiselect('Tipo de Ferramenta: ',hard_skills['tipo_ferramenta'].unique())
-
 
 if len(tipo_ferramentas) > 0:
 
@@ -264,7 +264,7 @@ with coluna3.container(border=True):
 
 with coluna4.container(border=True):    
 
-    make_bar_with_no_slice(soft_skills,'soft_skills','Soft Skills mais Demandas para Profissionais de Dados',14,12,20)
+    make_bar_with_no_slice(soft_skills[soft_skills,'soft_skills','Soft Skills mais Demandas para Profissionais de Dados',14,12,20)
 
 
 coluna5, coluna6 = st.columns((1,1))
@@ -276,7 +276,7 @@ with coluna5.container(border=True):
     
 with coluna6.container(border=True):
 
-    make_bar_with_no_slice(vagas,'estado','Ranking dos Estados com Mais Vagas',13,11,22)
+    make_bar_with_no_slice(vagas[(vagas['estado']!='nan')&(vagas['estado']!='Não Informado')&(vagas['estado']!='Remoto')],'estado','Ranking dos Estados com Mais Vagas',14,13,22)
 
 coluna8,coluna9,coluna10 = st.columns((1,1,1))
 
