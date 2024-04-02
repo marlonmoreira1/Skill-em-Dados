@@ -71,7 +71,7 @@ def make_heatmap(df,columny,column,titulo,label_y,labelx,xn,yn):
     contagem = df_filtro.groupby([columny, column])['job_id'].count().reset_index(name='contagem')
 
     
-    top_hard_skills = df.groupby(column)['job_id'].count().nlargest(12).reset_index()
+    top_hard_skills = df.groupby(column)['job_id'].count().nlargest(10).reset_index()
     contagem_top = contagem[contagem[column].isin(top_hard_skills[column])]
 
     teste = contagem_top.pivot(index=columny, columns=column, values='contagem').fillna(0)
