@@ -138,4 +138,4 @@ coluna2,descanso = st.columns((1,.00000000000000000001))
 
 with coluna2.container(border=True):
 
-    make_heatmap(hard_skills,'novo_cargo','hard_skills','Ferramentas mais Demandadas por Cargo','Hard Skills','Cargo',14,15)
+    make_heatmap(hard_skills,'novo_cargo','new_hard_skills','Ferramentas mais Demandadas por Cargo','Hard Skills','Cargo',14,15)
