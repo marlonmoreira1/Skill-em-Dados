@@ -254,17 +254,17 @@ with coluna1.container(border=True):
 
 with coluna2.container(border=True):
 
-    make_bar(complemento,'complemento','Ranking de Atividade de Dados mais Demandadas',2,13,11,22)    
+    make_bar(complemento,'complemento','Ranking de Atividade de Dados mais Demandadas',2,13,10,22)    
 
 coluna3,coluna4 = st.columns((1,1))
 
 with coluna3.container(border=True):
 
-    make_bar(graduacoes,'graduacoes','Graduações mais Citadas nas vagas',3,14,13,24)
+    make_bar(graduacoes,'graduacoes','Graduações mais Citadas nas vagas',3,13,12,24)
 
 with coluna4.container(border=True):    
 
-    make_bar(soft_skills,'soft_skills','Soft Skills mais Demandas para Profissionais de Dados',4,12,12,20)
+    make_bar(soft_skills,'soft_skills','Soft Skills mais Demandas para Profissionais de Dados',4,13,11,20)
 
 
 coluna5, coluna6 = st.columns((1,1))
@@ -276,7 +276,7 @@ with coluna5.container(border=True):
     
 with coluna6.container(border=True):
 
-    make_bar_with_no_slice(vagas[(vagas['estado']!='nan')&(vagas['estado']!='Não Informado')&(vagas['estado']!='Remoto')],'estado','Ranking dos Estados com Mais Vagas',14,12,22)
+    make_bar_with_no_slice(vagas[(vagas['estado']!='nan')&(vagas['estado']!='Não Informado')&(vagas['estado']!='Remoto')],'estado','Ranking dos Estados com Mais Vagas',13,12,22)
 
 coluna8,coluna9,coluna10 = st.columns((1,1,1))
 
