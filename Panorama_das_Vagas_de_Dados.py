@@ -254,17 +254,17 @@ with coluna1.container(border=True):
 
 with coluna2.container(border=True):
 
-    make_bar(complemento,'complemento','Ranking de Atividade de Dados mais Demandadas',2,13,10,22)    
+    make_bar(complemento,'complemento','Ranking de Atividade de Dados mais Demandadas',2,12,11,22)    
 
 coluna3,coluna4 = st.columns((1,1))
 
 with coluna3.container(border=True):
 
-    make_bar(graduacoes,'graduacoes','Graduações mais Citadas nas vagas',3,13,12,24)
+    make_bar_with_no_slice(graduacoes,'graduacoes','Graduações mais Citadas nas vagas',12,11,24)
 
 with coluna4.container(border=True):    
 
-    make_bar(soft_skills,'soft_skills','Soft Skills mais Demandas para Profissionais de Dados',4,13,11,20)
+    make_bar_with_no_slice(soft_skills,'soft_skills','Soft Skills mais Demandas para Profissionais de Dados',12,11,20)
 
 
 coluna5, coluna6 = st.columns((1,1))
