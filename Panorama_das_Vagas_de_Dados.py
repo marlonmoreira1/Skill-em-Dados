@@ -231,7 +231,7 @@ new_hard_skills = hard_skills[hard_skills['new_hard_skills'] != 'Não Informado'
 
 vagas['is_remote'] = vagas['is_remote'].map({True: 'Remoto', False: 'Presencial'})
 
-vagas['soft_skills'] = vagas['soft_skills'].map({'Capacidade de trabalhar de forma autônoma': 'Autonomia'})
+soft_skills['soft_skills'] = soft_skills['soft_skills'].map({'Capacidade de trabalhar de forma autônoma': 'Autonomia'})
 
 tipo_contrato['tipo_contrato'] = tipo_contrato['tipo_contrato'].fillna('Não Informado')
 
