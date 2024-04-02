@@ -15,7 +15,7 @@ with open(credentials_file) as json_file:
 
 client = bigquery.Client(credentials=service_account.Credentials.from_service_account_info(json_data), project=json_data['project_id'])
 
-# Função para consultar os dados no BigQuery
+
 @st.cache_data(ttl=28800)
 def consultar_dados_bigquery(consulta):
     query = consulta
@@ -70,23 +70,23 @@ def make_heatmap(df,columny,column,titulo,label_y,labelx,xn,yn):
 
     contagem = df_filtro.groupby([columny, column])['job_id'].count().reset_index(name='contagem')
 
-    # Filtrar as 10 principais hard_skills com base na contagem
+    
     top_hard_skills = df.groupby(column)['job_id'].count().nlargest(10).reset_index()
     contagem_top = contagem[contagem[column].isin(top_hard_skills[column])]
 
     teste = contagem_top.pivot(index=columny, columns=column, values='contagem').fillna(0)
 
-    # Criar o heatmap com Plotly Express
+    
     heatmap = px.imshow(contagem_top.pivot(index=columny, columns=column, values='contagem').fillna(0),
                         labels=dict(x=labelx, y=label_y, color='Contagem'),
                         x=teste.columns,
                         y=teste.index)
 
-    # Adicionar título
+    
     heatmap.update_layout(title=titulo,
-                          width=1000,  # Ajustar a largura do gráfico                          
-                          coloraxis_colorbar=dict(title='Contagem', ticks='inside'),  # Adicionar título à barra de cores
-                          coloraxis_colorbar_len=0.5,  # Ajustar o comprimento da barra de cores
+                          width=1000,                            
+                          coloraxis_colorbar=dict(title='Contagem', ticks='inside'),  
+                          coloraxis_colorbar_len=0.5,  
                           )
 
     heatmap.update_xaxes(tickfont=dict(size=xn))
@@ -99,7 +99,7 @@ def make_heatmap(df,columny,column,titulo,label_y,labelx,xn,yn):
 
     heatmap.update_layout(title_font_size=36)
 
-    # Exibir o heatmap no Streamlit
+    
     st.plotly_chart(heatmap,use_container_width=True)
 
 coluna1,descanso = st.columns((1,.00000000000000000001))
