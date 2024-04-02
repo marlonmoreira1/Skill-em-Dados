@@ -231,7 +231,7 @@ new_hard_skills = hard_skills[hard_skills['new_hard_skills'] != 'Não Informado'
 
 vagas['is_remote'] = vagas['is_remote'].map({True: 'Remoto', False: 'Presencial'})
 
-soft_skills['soft_skills'] = soft_skills['soft_skills'].map({'Capacidade de trabalhar de forma autônoma': 'Autonomia'})
+soft_skills['soft_skills'] = soft_skills['soft_skills'].replace({'Capacidade de trabalhar de forma autônoma': 'Autonomia'})
 
 tipo_contrato['tipo_contrato'] = tipo_contrato['tipo_contrato'].fillna('Não Informado')
 
@@ -276,7 +276,7 @@ with coluna5.container(border=True):
     
 with coluna6.container(border=True):
 
-    make_bar_with_no_slice(vagas[(vagas['estado']!='nan')&(vagas['estado']!='Não Informado')&(vagas['estado']!='Remoto')],'estado','Ranking dos Estados com Mais Vagas',14,13,22)
+    make_bar_with_no_slice(vagas[(vagas['estado']!='nan')&(vagas['estado']!='Não Informado')&(vagas['estado']!='Remoto')],'estado','Ranking dos Estados com Mais Vagas',13,15,22)
 
 coluna8,coluna9,coluna10 = st.columns((1,1,1))
 
