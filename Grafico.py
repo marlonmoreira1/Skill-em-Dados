@@ -61,7 +61,7 @@ def make_pie(df,column,titulo,tf):
 
 def make_bar_with_no_slice(df,column,titulo,ln,yn,tf):	
 
-	df_grafico = df.groupby(column)['job_id'].count().nlargest(10).reset_index(name='total').sort_values(by='total',ascending=True)
+	df_grafico = df.groupby(column)['job_id'].count().reset_index(name='total').sort_values(by='total',ascending=True)
 
 	fig = px.bar(df_grafico, 
 	 x='total', 
