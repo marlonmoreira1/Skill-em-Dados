@@ -25,7 +25,7 @@ def consultar_dados_bigquery(consulta):
 
 
 hard_skills = consultar_dados_bigquery("""
-    SELECT 
+    SELECT DISTINCT
 company_name,
 via,
 job_id,
@@ -45,7 +45,7 @@ UNNEST(SPLIT(hard_skills, ',')) AS hard_skills
 
 
 complemento = consultar_dados_bigquery("""
-    SELECT 
+    SELECT DISTINCT
 company_name,
 via,
 job_id,
