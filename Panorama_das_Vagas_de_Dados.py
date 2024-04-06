@@ -26,7 +26,7 @@ def consultar_dados_bigquery(consulta):
     return df
 
 vagas = consultar_dados_bigquery("""
-    SELECT 
+    SELECT DISTINCT
 company_name,
 via,
 job_id,
@@ -44,7 +44,7 @@ FROM
 
 
 hard_skills = consultar_dados_bigquery("""
-    SELECT 
+    SELECT DISTINCT
 company_name,
 via,
 job_id,
@@ -63,7 +63,7 @@ UNNEST(SPLIT(hard_skills, ',')) AS hard_skills
 
 
 complemento = consultar_dados_bigquery("""
-    SELECT 
+    SELECT DISTINCT
 company_name,
 via,
 job_id,
@@ -82,7 +82,7 @@ UNNEST(SPLIT(complemento, ',')) AS complemento
 
 
 soft_skills = consultar_dados_bigquery("""
-    SELECT 
+    SELECT DISTINCT
 company_name,
 via,
 job_id,
@@ -101,7 +101,7 @@ UNNEST(SPLIT(soft_skills, ',')) AS soft_skills
 
 
 graduacoes = consultar_dados_bigquery("""
-    SELECT 
+    SELECT DISTINCT
 company_name,
 via,
 job_id,
@@ -120,7 +120,7 @@ UNNEST(SPLIT(graduacoes, ',')) AS graduacoes
 
 
 metodologia_trabalho = consultar_dados_bigquery("""
-    SELECT 
+    SELECT DISTINCT
 company_name,
 via,
 job_id,
@@ -139,7 +139,7 @@ UNNEST(SPLIT(metodologia_trabalho, ',')) AS metodologia_trabalho
 
 
 tipo_contrato = consultar_dados_bigquery("""
-    SELECT 
+    SELECT DISTINCT
 company_name,
 via,
 job_id,
