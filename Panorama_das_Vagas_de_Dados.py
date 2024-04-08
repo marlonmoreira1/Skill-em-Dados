@@ -276,7 +276,7 @@ with coluna5.container(border=True):
     
 with coluna6.container(border=True):
 
-    make_bar_with_no_slice(vagas[(vagas['estado']!='nan')&(vagas['estado']!='Não Informado')&(vagas['estado']!='Remoto')],'estado','Ranking dos Estados com Mais Vagas',13,12,22)
+    make_bar_with_no_slice(vagas[(vagas['estado']!='nan')&(vagas['estado']!='Não Informado')&(vagas['estado']!='Remoto')],'estado','Ranking dos Estados com Mais Vagas',13,11,22)
 
 coluna8,coluna9,coluna10 = st.columns((1,1,1))
 
