@@ -6,7 +6,7 @@ def identificar_categoria(linha):
         return 'Programação'
     if linha.lower() in ["sql", "mysql", "postgresql", "oracle", "sql server", "sqlite", "mariadb", "ibm db2", "bigtable", "firebase","cassandra","hadoop","hbase","hive","flink","mongo db","couch db","amazon dynamo db"]:
         return 'Banco de Dados'
-    if linha.lower() in ["power bi", "tableau", "qlik", "looker", "google data studio", "metabase", "microstrategy", "sisense", "thoughtspot", "cognos", "synapse","ga4"]:
+    if linha.lower() in ["power bi", "tableau", "qlik", "looker", "google data studio", "metabase", "microstrategy", "sisense", "thoughtspot", "cognos", "synapse","ga4","sas","sap","ssis"]:
         return 'Ferramentas de BI'
     if linha.lower() in ["excel", "google sheets"]:
         return 'Planilhas'
