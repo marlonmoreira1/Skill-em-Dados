@@ -156,6 +156,13 @@ FROM
 UNNEST(SPLIT(tipo_contrato, ',')) AS tipo_contrato  
     """)
 
+vagas = vagas.drop_duplicates(subset=['company_name','via','job_id','xp','new_title','estado','cidade','is_remote','cargo']).reset_index(drop=True)
+hard_skills = hard_skills.drop_duplicates(subset=['company_name','via','job_id','xp','new_title','estado','cidade','is_remote','hard_skills','cargo']).reset_index(drop=True)
+soft_skills = soft_skills.drop_duplicates(subset=['company_name','via','job_id','xp','new_title','estado','cidade','is_remote','soft_skills','cargo']).reset_index(drop=True)
+complemento = complemento.drop_duplicates(subset=['company_name','via','job_id','xp','new_title','estado','cidade','is_remote','complemento','cargo']).reset_index(drop=True)
+graduacoes = graduacoes.drop_duplicates(subset=['company_name','via','job_id','xp','new_title','estado','cidade','is_remote','graduacoes','cargo']).reset_index(drop=True)
+metodologia_trabalho = metodologia_trabalho.drop_duplicates(subset=['company_name','via','job_id','xp','new_title','estado','cidade','is_remote','metodologia_trabalho','cargo']).reset_index(drop=True)
+tipo_contrato = tipo_contrato.drop_duplicates(subset=['company_name','via','job_id','xp','new_title','estado','cidade','is_remote','tipo_contrato','cargo']).reset_index(drop=True)
 
 st.write(f"<span style='font-size: 20px;'>Número de vagas armazenadas: {vagas.shape[0]}</span>",unsafe_allow_html=True)
 
