@@ -63,6 +63,9 @@ UNNEST(SPLIT(complemento, ',')) AS complemento
     """)
 
 
+hard_skills = hard_skills.drop_duplicates(subset=['company_name','via','job_id','xp','new_title','estado','cidade','is_remote','hard_skills','cargo']).reset_index(drop=True)
+complemento = complemento.drop_duplicates(subset=['company_name','via','job_id','xp','new_title','estado','cidade','is_remote','complemento','cargo']).reset_index(drop=True)
+
 
 def make_heatmap(df,columny,column,titulo,label_y,labelx,xn,yn):    
 
