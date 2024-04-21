@@ -56,7 +56,7 @@ def padronizar_ferramentas(linha):
 
 def padronizar_xp(linha):
     
-    if linha.lower() in ["estagiario","estagiário","estágio"]:
+    if linha.lower() in ["estagiario","estagiário","estágio","estagio"]:
         return 'Estágio'    
     return linha
 
