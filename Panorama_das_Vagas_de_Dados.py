@@ -279,7 +279,7 @@ coluna5, coluna6 = st.columns((1,1))
 with coluna5.container(border=True):
 
 
-    make_bar_with_no_slice(metodologia_trabalho,'metodologia_trabalho','Principais Metodologias Ágeis em Dados',13,13,18)
+    make_bar_with_no_slice(metodologia_trabalho,'metodologia_trabalho','Principais Metodologias Ágeis em Dados',12,13,18)
     
 with coluna6.container(border=True):
 
