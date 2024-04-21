@@ -271,7 +271,7 @@ with coluna3.container(border=True):
 
 with coluna4.container(border=True):    
 
-    make_bar(soft_skills,'soft_skills','Soft Skills mais Demandas para Profissionais de Dados',4,12,11,20)
+    make_bar(soft_skills,'soft_skills','Soft Skills mais Demandas para Profissionais de Dados',4,11,11,20)
 
 
 coluna5, coluna6 = st.columns((1,1))
