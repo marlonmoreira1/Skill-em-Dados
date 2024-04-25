@@ -117,6 +117,8 @@ def make_heatmap(df,columny,column,titulo,label_y,labelx,xn,yn):
     
     st.plotly_chart(heatmap,use_container_width=True)
 
+st.write("")
+
 coluna1,descanso = st.columns((1,.00000000000000000001))
 
 hard_skills['hard_skills'] = hard_skills['hard_skills'].fillna('Não Informado')
