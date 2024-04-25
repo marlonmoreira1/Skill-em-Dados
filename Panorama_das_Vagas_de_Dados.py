@@ -9,6 +9,17 @@ from Grafico import make_bar, make_pie,make_bar_with_no_slice
 
 st.set_page_config(page_title='Dados Sobre Dados',layout='wide')
 
+st.markdown("""
+        <style>
+               .block-container {
+                    padding-top: 0.1rem;
+                    padding-bottom: 3rem;
+                    padding-left: 2rem;
+                    padding-right: 2rem;                    
+                }
+        </style>
+        """, unsafe_allow_html=True)
+
 credentials_file = "privado/dadossobredados-e5a357810ee8.json"
 
 with open(credentials_file) as json_file:
@@ -164,10 +175,7 @@ graduacoes = graduacoes.drop_duplicates(subset=['company_name','via','job_id','x
 metodologia_trabalho = metodologia_trabalho.drop_duplicates(subset=['company_name','via','job_id','xp','new_title','estado','cidade','is_remote','metodologia_trabalho','cargo']).reset_index(drop=True)
 tipo_contrato = tipo_contrato.drop_duplicates(subset=['company_name','via','job_id','xp','new_title','estado','cidade','is_remote','tipo_contrato','cargo']).reset_index(drop=True)
 
-st.write(f"<span style='font-size: 20px;'>Número de vagas armazenadas: {vagas.shape[0]}</span>",unsafe_allow_html=True)
-
-st.write(f"<div style='font-size: 32px; text-align: center;'>Dados Sobre Dados Brasil</div>",unsafe_allow_html=True)
-
+st.write(f"<div style='font-size: 36px; color: blue; text-align: center;'>🎲🎲🎲 <img src='https://emojicdn.elk.sh/🇧🇷' style='vertical-align: middle;'/> <br> Cenário Brasileiro da Área de Dados  </div>", unsafe_allow_html=True)
 
 vagas['xp'] = vagas['xp'].apply(padronizar_xp)
 hard_skills['xp'] = hard_skills['xp'].apply(padronizar_xp)
@@ -252,6 +260,7 @@ else:
     
     new_hard_skills = new_hard_skills
 
+st.write(f"<span style='font-size: 18px; color: green;'>Vagas Armazenadas {vagas.shape[0]:,}</span>", unsafe_allow_html=True)
 
 coluna1,coluna2 = st.columns((1,1))
 
