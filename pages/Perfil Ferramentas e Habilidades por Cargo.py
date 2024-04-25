@@ -5,7 +5,19 @@ import json
 import plotly.express as px
 import pandas as pd
 from Processamento import padronizar_ferramentas, padronizar_cargo, padronizar_xp
+
 st.set_page_config(page_title='Dados Sobre Dados',layout='wide')
+
+st.markdown("""
+        <style>
+               .block-container {
+                    padding-top: 2rem;
+                    padding-bottom: 2rem;
+                    padding-left: 4rem;
+                    padding-right: 4rem;                    
+                }
+        </style>
+        """, unsafe_allow_html=True)
 
 credentials_file = "privado/dadossobredados-e5a357810ee8.json"
 
@@ -62,6 +74,8 @@ FROM
 UNNEST(SPLIT(complemento, ',')) AS complemento  
     """)
 
+
+st.write(f"<div style='font-size: 36px; text-align: center; color: blue;'>Perfil dos Profissionais de 🎲🎲🎲 </div>", unsafe_allow_html=True)
 
 hard_skills = hard_skills.drop_duplicates(subset=['company_name','via','job_id','xp','new_title','estado','cidade','is_remote','hard_skills','cargo']).reset_index(drop=True)
 complemento = complemento.drop_duplicates(subset=['company_name','via','job_id','xp','new_title','estado','cidade','is_remote','complemento','cargo']).reset_index(drop=True)
