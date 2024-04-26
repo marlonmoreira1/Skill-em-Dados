@@ -175,7 +175,7 @@ graduacoes = graduacoes.drop_duplicates(subset=['company_name','via','job_id','x
 metodologia_trabalho = metodologia_trabalho.drop_duplicates(subset=['company_name','via','job_id','xp','new_title','estado','cidade','is_remote','metodologia_trabalho','cargo']).reset_index(drop=True)
 tipo_contrato = tipo_contrato.drop_duplicates(subset=['company_name','via','job_id','xp','new_title','estado','cidade','is_remote','tipo_contrato','cargo']).reset_index(drop=True)
 
-st.write(f"<div style='font-size: 36px; color: blue; text-align: center;'>🎲🎲🎲 <img src='https://emojicdn.elk.sh/🇧🇷' style='vertical-align: middle;'/> <br> Cenário Brasileiro da Área de Dados  </div>", unsafe_allow_html=True)
+st.write(f"<div style='font-size: 36px; text-align: center;'>🎲🎲🎲 <img src='https://emojicdn.elk.sh/🇧🇷' style='vertical-align: middle;'/> <br> Cenário Brasileiro da Área de Dados  </div>", unsafe_allow_html=True)
 
 vagas['xp'] = vagas['xp'].apply(padronizar_xp)
 hard_skills['xp'] = hard_skills['xp'].apply(padronizar_xp)
@@ -260,7 +260,7 @@ else:
     
     new_hard_skills = new_hard_skills
 
-st.write(f"<span style='font-size: 18px; color: green;'>Vagas Armazenadas {vagas.shape[0]:,}</span>", unsafe_allow_html=True)
+st.write(f"<span style='font-size: 18px; color: blue;'>Vagas Armazenadas {vagas.shape[0]:,}</span>", unsafe_allow_html=True)
 
 coluna1,coluna2 = st.columns((1,1))
 
