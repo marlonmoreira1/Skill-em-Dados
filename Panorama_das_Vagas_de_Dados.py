@@ -266,21 +266,21 @@ coluna1,coluna2 = st.columns((1,1))
 
 with coluna1.container(border=True):
 
-    make_bar(new_hard_skills,'new_hard_skills','Ferramentas de Dados mais Demandadas no Mercado',1,12,12,22)
+    make_bar(new_hard_skills,'new_hard_skills','Ferramentas de Dados mais Demandadas no Mercado',1,11,12,22)
 
 with coluna2.container(border=True):
 
-    make_bar(complemento,'complemento','Ranking de Atividade de Dados mais Demandadas',2,12,11,22)    
+    make_bar(complemento,'complemento','Ranking de Atividade de Dados mais Demandadas',2,11,11,22)    
 
 coluna3,coluna4 = st.columns((1,1))
 
 with coluna3.container(border=True):
 
-    make_bar(graduacoes,'graduacoes','Graduações mais Citadas nas vagas',3,11,11,24)
+    make_bar(graduacoes,'graduacoes','Graduações mais Citadas nas vagas',3,10,11,24)
 
 with coluna4.container(border=True):    
 
-    make_bar(soft_skills,'soft_skills','Soft Skills mais Demandas para Profissionais de Dados',4,11,11,20)
+    make_bar(soft_skills,'soft_skills','Soft Skills mais Demandas para Profissionais de Dados',4,10,11,20)
 
 
 coluna5, coluna6 = st.columns((1,1))
