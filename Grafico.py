@@ -5,7 +5,7 @@ import pandas as pd
 
 def make_bar(df,column,titulo,n,ln,yn,tf):	
 
-	df_n = st.slider('top:', 1, df[column].nunique()+1,10,key=n)
+	df_n = st.slider('top:', 1, df[column].nunique()+1,15,key=n)
 
 	df_grafico = df.groupby(column)['job_id'].count().nlargest(df_n).reset_index(name='total').sort_values(by='total',ascending=True)
 
