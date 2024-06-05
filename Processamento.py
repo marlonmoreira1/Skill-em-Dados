@@ -70,7 +70,7 @@ def padronizar_metodologia(linha):
 
 def padronizar_cargo(linha):
     
-    if (linha['cargo'].lower() == 'analista de dados' or pd.isna(linha['cargo'])) and ("analista business intelligence" in linha['new_title'].lower() or "analista inteligência mercado" in linha['new_title'].lower() or "analista de bi" in linha['new_title'].lower() or "bi" in  linha['new_title'].lower() or "analista de business intelligence" in linha['new_title'].lower() or "power bi" in linha['new_title'].lower() or "especialista bi" in linha['new_title'].lower() or "inteligência mercado" in linha['new_title'].lower() or "negócios" in linha['new_title'].lower()):
+    if (linha['cargo'].lower() == 'analista de dados' or pd.isna(linha['cargo']) or linha['cargo'] == '') and ("analista business intelligence" in linha['new_title'].lower() or "analista inteligência mercado" in linha['new_title'].lower() or "analista de bi" in linha['new_title'].lower() or "bi" in  linha['new_title'].lower() or "analista de business intelligence" in linha['new_title'].lower() or "power bi" in linha['new_title'].lower() or "especialista bi" in linha['new_title'].lower() or "inteligência mercado" in linha['new_title'].lower() or "negócios" in linha['new_title'].lower()):
         return 'Analista de BI'
     if (linha['cargo'].lower() == 'analista de dados' or pd.isna(linha['cargo'])) and ("engenheira de dados" in linha['new_title'].lower() or "engenheiro de dados" in linha['new_title'].lower() or "data engineer" in linha['new_title'].lower() or "engenharia" in linha['new_title'].lower() or "engenheiro dados" in linha['new_title'].lower() or "engenheiro (a) de dados" in linha['new_title'].lower() or "engenheiro" in linha['new_title'].lower()):
         return 'Engenheiro de Dados'
