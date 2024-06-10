@@ -168,13 +168,13 @@ UNNEST(SPLIT(tipo_contrato, ',')) AS tipo_contrato
     """)
 
 
-vagas = vagas.applymap(lambda x: x.strip() if isinstance(x, str) else x)
-hard_skills = hard_skills.applymap(lambda x: x.strip() if isinstance(x, str) else x)
-soft_skills = soft_skills.applymap(lambda x: x.strip() if isinstance(x, str) else x)
-complemento = complemento.applymap(lambda x: x.strip() if isinstance(x, str) else x)
-graduacoes = graduacoes.applymap(lambda x: x.strip() if isinstance(x, str) else x)
-metodologia_trabalho = metodologia_trabalho.applymap(lambda x: x.strip() if isinstance(x, str) else x)
-tipo_contrato = tipo_contrato.applymap(lambda x: x.strip() if isinstance(x, str) else x)
+#vagas = vagas.applymap(lambda x: x.strip() if isinstance(x, str) else x)
+#hard_skills = hard_skills.applymap(lambda x: x.strip() if isinstance(x, str) else x)
+#soft_skills = soft_skills.applymap(lambda x: x.strip() if isinstance(x, str) else x)
+#complemento = complemento.applymap(lambda x: x.strip() if isinstance(x, str) else x)
+#graduacoes = graduacoes.applymap(lambda x: x.strip() if isinstance(x, str) else x)
+#metodologia_trabalho = metodologia_trabalho.applymap(lambda x: x.strip() if isinstance(x, str) else x)
+#tipo_contrato = tipo_contrato.applymap(lambda x: x.strip() if isinstance(x, str) else x)
 
 vagas = vagas.drop_duplicates(subset=['company_name','via','job_id','xp','new_title','estado','cidade','is_remote','cargo']).reset_index(drop=True)
 hard_skills = hard_skills.drop_duplicates(subset=['company_name','via','job_id','xp','new_title','estado','cidade','is_remote','hard_skills','cargo']).reset_index(drop=True)
