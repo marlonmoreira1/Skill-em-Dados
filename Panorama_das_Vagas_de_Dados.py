@@ -167,7 +167,12 @@ FROM
 UNNEST(SPLIT(tipo_contrato, ',')) AS tipo_contrato  
     """)
 
-
+hard_skills['hard_skills'] = hard_skills['hard_skills'].apply(lambda x: x.lstrip() if isinstance(x, str) else x)
+soft_skills['soft_skills'] = soft_skills['soft_skills'].apply(lambda x: x.strip() if isinstance(x, str) else x)
+complemento['complemento'] = complemento['complemento'].apply(lambda x: x.strip() if isinstance(x, str) else x)
+graduacoes['graduacoes'] = graduacoes['graduacoes'].apply(lambda x: x.strip() if isinstance(x, str) else x)
+metodologia_trabalho['metodologia_trabalho'] = metodologia_trabalho['metodologia_trabalho'].apply(lambda x: x.strip() if isinstance(x, str) else x)
+tipo_contrato['tipo_contrato'] = tipo_contrato['tipo_contrato'].apply(lambda x: x.strip() if isinstance(x, str) else x)
 
 vagas = vagas.drop_duplicates(subset=['company_name','via','job_id','xp','new_title','estado','cidade','is_remote','cargo']).reset_index(drop=True)
 hard_skills = hard_skills.drop_duplicates(subset=['company_name','via','job_id','xp','new_title','estado','cidade','is_remote','hard_skills','cargo']).reset_index(drop=True)
@@ -176,14 +181,6 @@ complemento = complemento.drop_duplicates(subset=['company_name','via','job_id',
 graduacoes = graduacoes.drop_duplicates(subset=['company_name','via','job_id','xp','new_title','estado','cidade','is_remote','graduacoes','cargo']).reset_index(drop=True)
 metodologia_trabalho = metodologia_trabalho.drop_duplicates(subset=['company_name','via','job_id','xp','new_title','estado','cidade','is_remote','metodologia_trabalho','cargo']).reset_index(drop=True)
 tipo_contrato = tipo_contrato.drop_duplicates(subset=['company_name','via','job_id','xp','new_title','estado','cidade','is_remote','tipo_contrato','cargo']).reset_index(drop=True)
-
-
-hard_skills['hard_skills'] = hard_skills['hard_skills'].apply(lambda x: x.lstrip() if isinstance(x, str) else x)
-#soft_skills = soft_skills.applymap(lambda x: x.strip() if isinstance(x, str) else x)
-#complemento = complemento.applymap(lambda x: x.strip() if isinstance(x, str) else x)
-#graduacoes = graduacoes.applymap(lambda x: x.strip() if isinstance(x, str) else x)
-#metodologia_trabalho = metodologia_trabalho.applymap(lambda x: x.strip() if isinstance(x, str) else x)
-#tipo_contrato = tipo_contrato.applymap(lambda x: x.strip() if isinstance(x, str) else x)
 
 st.write(f"<div style='font-size: 36px; text-align: center;'>🎲🎲🎲 <img src='https://emojicdn.elk.sh/🇧🇷' style='vertical-align: middle;'/> <br> Cenário Brasileiro da Área de Dados  </div>", unsafe_allow_html=True)
 
