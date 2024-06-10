@@ -168,8 +168,8 @@ UNNEST(SPLIT(tipo_contrato, ',')) AS tipo_contrato
     """)
 
 
-#vagas = vagas.applymap(lambda x: x.strip() if isinstance(x, str) else x)
-#hard_skills = hard_skills.applymap(lambda x: x.strip() if isinstance(x, str) else x)
+vagas = vagas.applymap(lambda x: x.lsstrip() if isinstance(x, str) else x)
+hard_skills = hard_skills.applymap(lambda x: x.lsstrip() if isinstance(x, str) else x)
 #soft_skills = soft_skills.applymap(lambda x: x.strip() if isinstance(x, str) else x)
 #complemento = complemento.applymap(lambda x: x.strip() if isinstance(x, str) else x)
 #graduacoes = graduacoes.applymap(lambda x: x.strip() if isinstance(x, str) else x)
