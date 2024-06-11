@@ -249,7 +249,7 @@ hard_skills['new_hard_skills'] = hard_skills['hard_skills'].apply(padronizar_fer
 
 hard_skills['tipo_ferramenta'] = hard_skills['new_hard_skills'].apply(identificar_categoria)
 
-new_hard_skills = hard_skills[(hard_skills['new_hard_skills'] != 'Não Informado') & (hard_skills['date']!='2024-06-10')]
+new_hard_skills = hard_skills[hard_skills['new_hard_skills'] != 'Não Informado']
 
 vagas['is_remote'] = vagas['is_remote'].map({True: 'Remoto', False: 'Presencial'})
 
