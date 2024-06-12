@@ -12,10 +12,8 @@ nome = 'dadossobredados'
 nome_usuario = st.text_input("Nome:")
 usuario_senha = st.text_input("Senha:",type="password")
 
-if usuario_senha != '1234' or nome_usuario != 'dadossobredados':
-        st.text('usuario ou senha errado!')
-else:
-
+if usuario_senha == '1234' or nome_usuario == 'dadossobredados':
+        
         st.set_page_config(page_title='Dados Sobre Dados',layout='wide')
         
         st.markdown("""
@@ -323,3 +321,5 @@ else:
         with coluna10.container(border=True):
         
             make_pie(tipo_contrato,'tipo_contrato','Distribuição de Vagas por Tipo de Contrato',17)
+else:
+        st.text('usuario ou senha errado!')
