@@ -9,8 +9,8 @@ from Grafico import make_bar, make_pie,make_bar_with_no_slice
 
 senha = '1234'
 nome = 'dadossobredados'
-nome_usuario = st.text_input("Nome:")
-usuario_senha = st.text_input("Senha:",type="password")
+nome_usuario = input("Nome:")
+usuario_senha = input("Senha:",type="password")
 
 if usuario_senha == '1234' and nome_usuario == 'dadossobredados':
         
