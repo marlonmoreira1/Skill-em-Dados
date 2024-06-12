@@ -12,7 +12,7 @@ nome = 'dadossobredados'
 nome_usuario = st.text_input("Nome:")
 usuario_senha = st.text_input("Senha:")
 
-if senha_usuario not '1234' and nome_usuario not 'dadossobredados':
+if senha_usuario is not '1234' and nome_usuario is not 'dadossobredados':
         st.text('usuario ou senha errado!')
 else:
 
