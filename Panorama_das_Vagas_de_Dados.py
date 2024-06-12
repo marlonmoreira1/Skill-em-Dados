@@ -12,7 +12,7 @@ st.set_page_config(page_title='Dados Sobre Dados',layout='wide')
 st.markdown("""
         <style>
                .block-container {
-                    padding-top: 0.1rem;
+                    padding-top: 0.2rem;
                     padding-bottom: 3rem;
                     padding-left: 2rem;
                     padding-right: 2rem;                    
