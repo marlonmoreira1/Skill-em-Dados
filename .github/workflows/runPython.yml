@@ -21,6 +21,6 @@ jobs:
 
       - name: Run Python Script
         env:
-          bigquery: ${{ secrets.BIGQUERY }}
+          bigquery: ${{ secrets.BIG_QUERY }}
         run: |
           python Panorama_das_Vagas_de_Dados.py
