@@ -22,8 +22,8 @@ st.markdown("""
         """, unsafe_allow_html=True)
 
 credentials_file = os.environ.get("bigquery")
-
-json_data = json.loads(credentials_file)
+st.text(credentials_file)
+#json_data = json.loads(credentials_file)
 
 if credentials_json is None:
     raise KeyError("BIGQUERY environment variable not set")
