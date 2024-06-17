@@ -47,9 +47,9 @@ credentials_file = {
     "universe_domain": universe_domain
 }
 
-json_data = json.loads(credentials_file)
+#json_data = json.loads(credentials_file)
 
-client = bigquery.Client(credentials=service_account.Credentials.from_service_account_info(json_data), project=project_id)
+client = bigquery.Client(credentials=service_account.Credentials.from_service_account_info(credentials_file), project=project_id)
 
 @st.cache_data(ttl=28800)
 def consultar_dados_bigquery(consulta):
