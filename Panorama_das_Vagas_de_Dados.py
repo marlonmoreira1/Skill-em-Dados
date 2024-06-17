@@ -25,7 +25,7 @@ credentials_file = ".github/workflows/dadossobredados-e5a357810ee8.json"
 
 with open(credentials_file) as json_file:
     json_data = json.load(json_file)
-client = bigquery.Client(credentials=service_account.Credentials.from_service_account_info(credentials_file), project=project_id)
+client = bigquery.Client(credentials=service_account.Credentials.from_service_account_info(json_data), project=json_data['project_id'])
 
 @st.cache_data(ttl=28800)
 def consultar_dados_bigquery(consulta):
