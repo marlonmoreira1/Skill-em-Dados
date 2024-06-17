@@ -34,7 +34,7 @@ credentials = {
   "token_uri": st.secrets["TOKEN_URI"],
   "auth_provider_x509_cert_url": st.secrets["AUTH_PROVIDER_X509_CERT_URL"],
   "client_x509_cert_url": st.secrets["CLIENT_X509_CERT_URL"],
-  "universe_domain": st.secrets["UNIVERSE_DOMAIN"]"
+  "universe_domain": st.secrets["UNIVERSE_DOMAIN"]
 }
 
 with open(credentials_file) as json_file:
