@@ -23,7 +23,7 @@ st.markdown("""
 
 credentials_file = os.environ.get("bigquery")
 
-
+json_data = json.loads(credentials_file)
 
 client = bigquery.Client(credentials=service_account.Credentials.from_service_account_info(credentials_file), project=credentials_file['project_id'])
 
