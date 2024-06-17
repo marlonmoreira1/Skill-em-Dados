@@ -21,7 +21,7 @@ jobs:
 
       - name: Start Streamlit App
         env:
-          BIGQUERY: ${{ secrets.BIGQUERY }}
+          BIGQUERY: ${{ secrets.BIG_QUERY }}
         run: |
           nohup streamlit run --server.headless true Panorama_das_Vagas_de_Dados.py &
           sleep 10
