@@ -23,4 +23,4 @@ jobs:
         env:
           BIGQUERY: ${{ secrets.BIGQUERY }}
         run: |
-          python Panorama_das_Vagas_de_Dados.py
+          streamlit run Panorama_das_Vagas_de_Dados.py
