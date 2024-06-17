@@ -49,7 +49,10 @@ credentials_file = {
 
 #json_data = json.loads(credentials_file)
 
-if credentials_file is None:
+if type is None:
+    raise KeyError("BIGQUERY environment variable not set")
+
+if private_key is None:
     raise KeyError("BIGQUERY environment variable not set")
 
 # Verifica o tipo de credentials_json
