@@ -24,22 +24,20 @@ jobs:
           echo "Printing environment variables"
           printenv
         env:
-          BIGQUERY: ${{ secrets.BIG_QUERY }}
+          BIGQUERY: ${{ secrets.BIGQUERY }}
 
-      - name: Verify BIG_QUERY Secret
+      - name: Verify BIGQUERY Secret
         run: |
-          echo "Verifying BIG_QUERY environment variable"
-          if [ -z "$BIG_QUERY" ]; then
-            echo "BIG_QUERY is not set"
+          echo "Verifying BIGQUERY secret"
+          if [ -z "${{ secrets.BIGQUERY }}" ]; then
+            echo "BIGQUERY secret is not set"
             exit 1
           else
-            echo "BIG_QUERY is set"
+            echo "BIGQUERY secret is set"
           fi
-        env:
-          BIGQUERY: ${{ secrets.BIG_QUERY }}
 
       - name: Run Python Script
         env:
-          BIGQUERY: ${{ secrets.BIG_QUERY }}
+          BIGQUERY: ${{ secrets.BIGQUERY }}
         run: |
           python Panorama_das_Vagas_de_Dados.py
