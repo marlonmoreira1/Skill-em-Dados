@@ -1,26 +1,25 @@
-name: Run Python Script
+name: Deploy Streamlit App
 
 on:
   workflow_dispatch:
 
 jobs:
-  run-python:
+  run-streamlit:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v3
         with:
-          python-version: '3.9'
+          python-version: '3.9'  # Ajuste para a versão de Python necessária
 
-      - name: Install Dependencies
+      - name: Install Streamlit
+        run: pip install streamlit
+
+      - name: Start Streamlit App
         run: |
-          pip install -r requirements.txt
-      
-      - name: Run Python Script
-        env:
-          BIGQUERY: ${{ secrets.BIGQUERY }}
-        run: |
-          streamlit run Panorama_das_Vagas_de_Dados.py
+          nohup streamlit run app.py &  # Inicia o Streamlit em segundo plano
+          sleep 10  # Espera um tempo para o Streamlit iniciar (ajuste conforme necessário)
