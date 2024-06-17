@@ -21,7 +21,7 @@ st.markdown("""
         </style>
         """, unsafe_allow_html=True)
 
-type = os.environ["TYPE"]
+type = os.environ.get("TYPE")
 project_id = os.getenv('PROJECT_ID')
 private_key_id = os.getenv('PRIVATE_KEY_ID')
 private_key = os.getenv('PRIVATE_KEY')
