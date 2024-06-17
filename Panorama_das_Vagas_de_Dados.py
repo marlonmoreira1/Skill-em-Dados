@@ -1,4 +1,5 @@
 import streamlit as st
+import os
 from google.cloud import bigquery
 from google.oauth2 import service_account
 import json
@@ -20,7 +21,7 @@ st.markdown("""
         </style>
         """, unsafe_allow_html=True)
 
-credentials_file = "privado/dadossobredados-e5a357810ee8.json"
+credentials_file = os.environ["bigquery"]
 
 with open(credentials_file) as json_file:
     json_data = json.load(json_file)
