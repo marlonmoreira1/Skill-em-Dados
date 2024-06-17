@@ -17,7 +17,7 @@ jobs:
           python-version: '3.9'  # Ajuste para a versão de Python necessária
 
       - name: Install Streamlit
-        run: pip install requirements.txt
+        run: pip install -r requirements.txt
 
       - name: Set up environment variables
         run: echo "BIGQUERY=$BIGQUERY" >> $GITHUB_ENV
