@@ -3,12 +3,9 @@ name: Run Python Script
 on:
   workflow_dispatch:
 
-env:
-  bigquery: ${{secrets.BIGQUERY}}
-
 jobs:
   run-python:
-    runs-on: Ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -18,11 +15,12 @@ jobs:
         with:
           python-version: '3.9'
 
-      - name: Run Python Script
+      - name: Install Dependencies
         run: |
-          pip install requirements.txt
-          python Panorama_das_Vagas_de_Dados.py
+          pip install -r requirements.txt
 
-        
-        
-        
+      - name: Run Python Script
+        env:
+          bigquery: ${{ secrets.BIGQUERY }}
+        run: |
+          python Panorama_das_Vagas_de_Dados.py
