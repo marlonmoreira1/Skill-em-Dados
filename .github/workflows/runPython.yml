@@ -18,24 +18,7 @@ jobs:
       - name: Install Dependencies
         run: |
           pip install -r requirements.txt
-
-      - name: Debug Environment Variables
-        run: |
-          echo "Printing environment variables"
-          printenv
-        env:
-          BIGQUERY: ${{ secrets.BIGQUERY }}
-
-      - name: Verify BIGQUERY Secret
-        run: |
-          echo "Verifying BIGQUERY secret"
-          if [ -z "${{ secrets.BIGQUERY }}" ]; then
-            echo "BIGQUERY secret is not set"
-            exit 1
-          else
-            echo "BIGQUERY secret is set"
-          fi
-
+      
       - name: Run Python Script
         env:
           BIGQUERY: ${{ secrets.BIGQUERY }}
