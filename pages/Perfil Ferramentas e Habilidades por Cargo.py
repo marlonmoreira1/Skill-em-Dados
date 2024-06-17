@@ -19,7 +19,7 @@ st.markdown("""
         </style>
         """, unsafe_allow_html=True)
 
-credentials_file = "privado/dadossobredados-e5a357810ee8.json"
+credentials_file = ".github/workflows/dadossobredados-e5a357810ee8.json"
 
 with open(credentials_file) as json_file:
     json_data = json.load(json_file)
