@@ -77,6 +77,10 @@ UNNEST(SPLIT(complemento, ',')) AS complemento
 
 st.write(f"<div style='font-size: 36px; text-align: center; '>Perfil dos Profissionais de 🎲🎲🎲 </div>", unsafe_allow_html=True)
 
+hard_skills['hard_skills'] = hard_skills['hard_skills'].apply(lambda x: x.lstrip() if isinstance(x, str) else x)
+complemento['complemento'] = complemento['complemento'].apply(lambda x: x.strip() if isinstance(x, str) else x)
+
+
 hard_skills = hard_skills.drop_duplicates(subset=['company_name','via','job_id','xp','new_title','estado','cidade','is_remote','hard_skills','cargo']).reset_index(drop=True)
 complemento = complemento.drop_duplicates(subset=['company_name','via','job_id','xp','new_title','estado','cidade','is_remote','complemento','cargo']).reset_index(drop=True)
 
