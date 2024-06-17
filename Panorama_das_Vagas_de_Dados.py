@@ -49,16 +49,6 @@ credentials_file = {
 
 #json_data = json.loads(credentials_file)
 
-if type is None:
-    raise KeyError("BIGQUERY environment variable not set")
-
-if private_key is None:
-    raise KeyError("BIGQUERY environment variable not set")
-
-# Verifica o tipo de credentials_json
-if not isinstance(credentials_file, str):
-    raise TypeError("BIGQUERY environment variable is not a string")
-
 client = bigquery.Client(credentials=service_account.Credentials.from_service_account_info(credentials_file), project=credentials_file['project_id'])
 
 @st.cache_data(ttl=28800)
