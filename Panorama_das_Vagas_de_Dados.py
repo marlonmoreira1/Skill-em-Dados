@@ -21,7 +21,7 @@ st.markdown("""
         </style>
         """, unsafe_allow_html=True)
 
-credentials_file = os.environ["bigquery"]
+credentials_file = os.environ.get("bigquery")
 
 with open(credentials_file) as json_file:
     json_data = json.load(json_file)
