@@ -9,10 +9,10 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
       - name: Setup Python
-        uses: actions/setup-python@v3
+        uses: actions/setup-python@v2
         with:
           python-version: '3.9'  # Ajuste para a versão de Python necessária
 
@@ -20,6 +20,8 @@ jobs:
         run: pip install streamlit
 
       - name: Start Streamlit App
+        env:
+          BIGQUERY: ${{ secrets.BIGQUERY }}
         run: |
-          nohup streamlit run app.py &  # Inicia o Streamlit em segundo plano
-          sleep 10  # Espera um tempo para o Streamlit iniciar (ajuste conforme necessário)
+          nohup streamlit run --server.headless true Panorama_das_Vagas_de_Dados.py &
+          sleep 10
