@@ -26,7 +26,7 @@ credentials_file = os.environ["bigquery"]
 with open(credentials_file) as json_file:
     json_data = json.load(json_file)
 
-client = bigquery.Client(credentials=service_account.Credentials.from_service_account_info(json_data), project=json_data['project_id'])
+client = bigquery.Client(credentials=service_account.Credentials.from_service_account_info(json_data), project=credentials_file)
 
 @st.cache_data(ttl=28800)
 def consultar_dados_bigquery(consulta):
