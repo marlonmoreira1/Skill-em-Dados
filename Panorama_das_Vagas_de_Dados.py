@@ -21,8 +21,6 @@ st.markdown("""
         </style>
         """, unsafe_allow_html=True)
 
-credentials_file = ".github/workflows/dadossobredados-e5a357810ee8.json"
-
 credentials = {
   "type": st.secrets["TYPE"],
   "project_id": st.secrets["PROJECT_ID"],
@@ -37,8 +35,7 @@ credentials = {
   "universe_domain": st.secrets["UNIVERSE_DOMAIN"]
 }
 
-with open(credentials_file) as json_file:
-    json_data = json.load(json_file)
+
 client = bigquery.Client(credentials=service_account.Credentials.from_service_account_info(credentials), project=credentials['project_id'])
 
 @st.cache_data(ttl=28800)
