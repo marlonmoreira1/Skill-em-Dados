@@ -21,7 +21,7 @@ st.markdown("""
         </style>
         """, unsafe_allow_html=True)
 
-credentials_file = os.environ.get("BIGQUERY")
+credentials_file = ${{BIGQUERY}}
 st.text(credentials_file)
 #json_data = json.loads(credentials_file)
 
