@@ -32,5 +32,5 @@ token_uri = os.getenv('TOKEN_URI')
 auth_provider_x509_cert_url = os.getenv('AUTH_PROVIDER_X509_CERT_URL')
 client_x509_cert_url = os.getenv('CLIENT_X509_CERT_URL')
 universe_domain = os.getenv('UNIVERSE_DOMAIN')
-st.text(type)
+st.markdown(type)
 
