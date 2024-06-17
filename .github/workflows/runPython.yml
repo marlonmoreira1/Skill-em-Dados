@@ -20,10 +20,33 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Set up environment variables
-        run: echo "BIGQUERY=$BIGQUERY" >> $GITHUB_ENV
+        run: |
+          echo "Setting up BIGQUERY environment variables"
+          echo "Setting up BIGQUERY environment variables"
+          echo "export TYPE='${{ secrets.TYPE }}'" >> $GITHUB_ENV
+          echo "export PROJECT_ID='${{ secrets.PROJECT_ID }}'" >> $GITHUB_ENV
+          echo "export PRIVATE_KEY_ID='${{ secrets.PRIVATE_KEY_ID }}'" >> $GITHUB_ENV
+          echo "export PRIVATE_KEY='${{ secrets.PRIVATE_KEY }}'" >> $GITHUB_ENV
+          echo "export CLIENT_EMAIL='${{ secrets.CLIENT_EMAIL }}'" >> $GITHUB_ENV
+          echo "export CLIENT_ID='${{ secrets.CLIENT_ID }}'" >> $GITHUB_ENV
+          echo "export AUTH_URI='${{ secrets.AUTH_URI }}'" >> $GITHUB_ENV
+          echo "export TOKEN_URI='${{ secrets.TOKEN_URI }}'" >> $GITHUB_ENV
+          echo "export AUTH_PROVIDER_X509_CERT_URL='${{ secrets.AUTH_PROVIDER_X509_CERT_URL }}'" >> $GITHUB_ENV
+          echo "export CLIENT_X509_CERT_URL='${{ secrets.CLIENT_X509_CERT_URL }}'" >> $GITHUB_ENV
+          echo "export UNIVERSE_DOMAIN='${{ secrets.UNIVERSE_DOMAIN }}'" >> $GITHUB_ENV
 
         env:
-          BIGQUERY: ${{ secrets.BIGQUERY }}
+          TYPE: ${{ secrets.TYPE }} 
+          PROJECT_ID: ${{ secrets.PROJECT_ID }}
+          PRIVATE_KEY_ID: ${{ secrets.PRIVATE_KEY_ID }}          
+          PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+          CLIENT_EMAIL: ${{ secrets.CLIENT_EMAIL }}
+          CLIENT_ID: ${{ secrets.CLIENT_ID }}
+          AUTH_URI: ${{ secrets.AUTH_URI }}
+          TOKEN_URI: ${{ secrets.TOKEN_URI }}
+          AUTH_PROVIDER_X509_CERT_URL: ${{ secrets.AUTH_PROVIDER_X509_CERT_URL }}
+          CLIENT_X509_CERT_URL: ${{ secrets.CLIENT_X509_CERT_URL }}
+          UNIVERSE_DOMAIN: ${{ secrets.UNIVERSE_DOMAIN }} 
 
       - name: Start Streamlit App
         run: |
