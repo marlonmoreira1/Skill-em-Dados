@@ -22,10 +22,24 @@ jobs:
       - name: Debug Environment Variables
         run: |
           echo "Printing environment variables"
-          printenv | grep BIG_QUERY
+          printenv
+        env:
+          BIGQUERY: ${{ secrets.BIGQUERY }}
+
+      - name: Verify BIGQUERY Secret
+        run: |
+          echo "Verifying BIGQUERY environment variable"
+          if [ -z "$BIGQUERY" ]; then
+            echo "BIGQUERY is not set"
+            exit 1
+          else
+            echo "BIGQUERY is set"
+          fi
+        env:
+          BIGQUERY: ${{ secrets.BIGQUERY }}
 
       - name: Run Python Script
         env:
-          BIGQUERY: ${{ secrets.BIG_QUERY }}
+          BIGQUERY: ${{ secrets.BIGQUERY }}
         run: |
           python Panorama_das_Vagas_de_Dados.py
