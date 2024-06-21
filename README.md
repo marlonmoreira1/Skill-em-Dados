@@ -12,7 +12,7 @@ Perguntas a Serem Respondidas
 5.	Qual a senioridade e tipo de contrato das vagas?
 6.	Como as vagas estão distribuídas geograficamente no Brasil?
 
-[Link Para o Dashboard](bit.ly/SkillemDados)
+[Link Para o Dashboard](https://app.powerbi.com/view?r=eyJrIjoiMzZlMWIxNzEtZmU1YS00YTNlLWJlMWItNjQzMTNhMTA0NTIwIiwidCI6ImMzODRkN2Y5LTdhNDEtNDZiOS04ZTRjLWQzOTJlMGU4Zjc4OSJ9)
 
 #### Público-alvo do Projeto
 Este projeto é destinado a pessoas que estão no início da carreira profissional na área de dados. Além disso, também pode oferecer valor significativo para outros públicos, tais como:
