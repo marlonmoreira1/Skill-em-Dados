@@ -274,7 +274,7 @@ def carregar_dados(ti):
 
     dataframe['date'] = dataframe['date'].astype(str)
 
-    credentials_file = "dags/credentials.json"
+    credentials_file = os.environ["BigQuery_CREDENTIALS"]
 
     with open(credentials_file) as json_file:
         json_data = json.load(json_file)
@@ -283,7 +283,7 @@ def carregar_dados(ti):
     client = bigquery.Client(credentials=service_account.Credentials.from_service_account_info(json_data), project=json_data['project_id'])
 
 
-    table_id = "table_id"
+    table_id = credentials_file["table_id"]
 
     job_config = bigquery.LoadJobConfig(
         
