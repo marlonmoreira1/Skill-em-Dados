@@ -54,7 +54,7 @@ O projeto utiliza a seguinte arquitetura para coleta, transformação, armazenam
 ![arquitetura-projeto](https://github.com/marlonmoreira1/dadossobredados/assets/71144665/a45d409a-e613-45e0-9e89-e1a4f10dfb6c)
 
 #### Apache Airflow
-O Apache Airflow desempenha um papel central na arquitetura do projeto, sendo utilizado para orquestrar o processo de ETL (Extração, Transformação e Carga) dos dados. A DAG (Directed Acyclic Graph) no Airflow é estruturada utilizando operadores Python (PythonOperator) para executar as etapas de Extrair, Transformar e Carregar de forma automatizada e sequencial.
+O Apache Airflow desempenha um papel central na arquitetura do projeto, sendo utilizado para orquestrar o processo de ETL (Extração, Transformação e Carga) dos dados. A DAG (Directed Acyclic Graph) no Airflow é estruturada utilizando operadores Python (PythonOperator) para executar as tarefas de Extrair, Transformar e Carregar de forma automatizada e sequencial.
 #### BigQuery
 Os dados transformados são armazenados no Google BigQuery. Essa escolha se deve ao nível generoso de armazenamento gratuito que o BigQuery oferece, permitindo até 10GB por mês, o que é adequado para o volume atual de dados do projeto.
 #### Power BI
