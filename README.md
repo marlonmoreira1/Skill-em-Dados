@@ -82,4 +82,4 @@ Conheça os detalhes de cada etapa do projeto no artigo publicado no Medium:
 *	Deploy e Automação da Atualização
 *	Insights e Uso do Aplicativo (Dashboard)
 
-![Artigo do Medium]([www.pspojdsa.com](https://medium.com/@marlonm.almeida/skill-em-dados-executando-um-projeto-de-an%C3%A1lise-de-dados-0a47b6626dcc))
+[Artigo do Medium]([www.pspojdsa.com](https://medium.com/@marlonm.almeida/skill-em-dados-executando-um-projeto-de-an%C3%A1lise-de-dados-0a47b6626dcc))
