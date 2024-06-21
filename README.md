@@ -62,6 +62,7 @@ O Power BI foi selecionado como a ferramenta de visualização principal devido 
 *	Conectividade com a Fonte de Dados: O Power BI permite conectar-se a várias fontes de dados, incluindo o Google BigQuery, facilitando a integração e análise de dados.
 *	Publicação na Web Gratuita: A capacidade de publicar o dashboard como uma página web de forma gratuita e simples, com a possibilidade de atualização diária, facilita o compartilhamento do projeto.
 *	Robustez na Visualização de Dados: O Power BI oferece recursos avançados de visualização que permitem criar dashboards e relatórios altamente personalizados, proporcionando uma análise detalhada das tendências e demandas do mercado de trabalho na área de dados, de maneira intuitiva e informativa.
+  
 Esses atributos do Power BI foram determinantes na escolha da ferramenta para suportar a visualização dos dados coletados e transformados no projeto.
 #### Python
 O Python desempenha um papel fundamental na maioria das etapas do projeto, a saber:
@@ -69,6 +70,7 @@ O Python desempenha um papel fundamental na maioria das etapas do projeto, a sab
 *	Transformação de Dados: Utilizado para manipular e transformar os dados brutos coletados em uma estrutura de dados tabular que é a adequada para o armazenamento e a análise.
 *	Integração com Apache Airflow: Utilizado na definição de operadores e tarefas na DAG do Apache Airflow, permitindo a automação e a orquestração das etapas de ETL.
 *	Integração com Google BigQuery: Utilizado para carregar os dados transformados no BigQuery.
+  
 O Python foi escolhido devido à sua versatilidade, ampla gama de bibliotecas para manipulação de dados e integração com outras ferramentas essenciais do projeto.
 
 ## Conclusão
