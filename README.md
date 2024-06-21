@@ -2,8 +2,9 @@
 ## 1. Descrição
 #### Definição do Problema
 A ideia para este projeto surgiu da falta de direcionamento sobre o que estudar e quais habilidades desenvolver, por parte de muitos iniciantes na área de dados, incluindo colegas de faculdade e cursos. A volumosa quantidade de ferramentas e materiais didáticos disponíveis pode acabar gerando uma sobrecarga no aluno por não haver um caminho definido para seguir.
-Objetivo do Projeto
+#### Objetivo do Projeto
 O objetivo deste projeto é contribuir com a formação de iniciantes que almejam entrar na área de dados, fornecendo uma visão baseada em dados sobre as habilidades e conhecimentos mais demandados pelo mercado. Através da coleta e análise de vagas de emprego/estágio, o projeto visa responder à pergunta: “Como se tornar um profissional de dados no Brasil?” Para isso, são identificados as ferramentas, tecnologias, soft skills, metodologias, formações acadêmicas e outros requisitos mais frequentemente requeridos nas vagas. Assim, criei um guia no formato de dashboard, no qual é possível visualizar, de modo ágil, as demandas do que estudar e se capacitar para ingressar no mercado de trabalho. Ao fornecer dados concretos e atualizados sobre as exigências mercadológicas, este projeto ajuda a reduzir a incerteza que muitos iniciantes enfrentam, oferecendo um caminho mais claro para o desenvolvimento de suas carreiras na área de dados.
+
 Perguntas a Serem Respondidas
 1.	Quais são as ferramentas e tecnologias mais demandadas no mercado de trabalho na área de dados?
 2.	Quais são as soft skills e metodologias ágeis mais requisitadas?
@@ -58,7 +59,7 @@ O Apache Airflow desempenha um papel central na arquitetura do projeto, sendo ut
 #### BigQuery
 Os dados transformados são armazenados no Google BigQuery. Essa escolha se deve ao nível generoso de armazenamento gratuito que o BigQuery oferece, permitindo até 10GB por mês, o que é adequado para o volume atual de dados do projeto.
 #### Power BI
-O Power BI foi selecionado como a ferramenta de visualização principal devido às seguintes razões estratégicas:
+O Power BI foi selecionado como a ferramenta de visualização devido às seguintes razões estratégicas:
 *	Conectividade com a Fonte de Dados: O Power BI permite conectar-se a várias fontes de dados, incluindo o Google BigQuery, facilitando a integração e análise de dados.
 *	Publicação na Web Gratuita: A capacidade de publicar o dashboard como uma página web de forma gratuita e simples, com a possibilidade de atualização diária, facilita o compartilhamento do projeto.
 *	Robustez na Visualização de Dados: O Power BI oferece recursos avançados de visualização que permitem criar dashboards e relatórios altamente personalizados, proporcionando uma análise detalhada das tendências e demandas do mercado de trabalho na área de dados, de maneira intuitiva e informativa.
@@ -68,7 +69,7 @@ Esses atributos do Power BI foram determinantes na escolha da ferramenta para su
 O Python desempenha um papel fundamental na maioria das etapas do projeto, a saber:
 *	Coleta de Dados: Utilizado para realizar chamadas à API da SerpAPI e extrair os dados no formato JSON.
 *	Transformação de Dados: Utilizado para manipular e transformar os dados brutos coletados em uma estrutura de dados tabular que é a adequada para o armazenamento e a análise.
-*	Integração com Apache Airflow: Utilizado na definição de operadores e tarefas na DAG do Apache Airflow, permitindo a automação e a orquestração das etapas de ETL.
+*	Integração com Apache Airflow: Utilizado na definição de operadores e tarefas na DAG do Apache Airflow, permitindo a automação e a orquestração do processo de ETL.
 *	Integração com Google BigQuery: Utilizado para carregar os dados transformados no BigQuery.
   
 O Python foi escolhido devido à sua versatilidade, ampla gama de bibliotecas para manipulação de dados e integração com outras ferramentas essenciais do projeto.
