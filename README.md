@@ -65,6 +65,13 @@ O Power BI foi selecionado como a ferramenta de visualização devido às seguin
 *	Robustez na Visualização de Dados: O Power BI oferece recursos avançados de visualização que permitem criar dashboards e relatórios altamente personalizados, proporcionando uma análise detalhada das tendências e demandas do mercado de trabalho na área de dados, de maneira intuitiva e informativa.
   
 Esses atributos do Power BI foram determinantes na escolha da ferramenta para suportar a visualização dos dados coletados e transformados no projeto.
+
+![dashboard perfil vagas](https://github.com/marlonmoreira1/Skill-em-Dados/assets/71144665/dd8e8826-d1dd-46cd-9a63-75a05848146b)
+
+
+
+
+
 #### Python
 O Python desempenha um papel fundamental na maioria das etapas do projeto, a saber:
 *	Coleta de Dados: Utilizado para realizar chamadas à API da SerpAPI e extrair os dados no formato JSON.
