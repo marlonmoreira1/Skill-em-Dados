@@ -93,7 +93,9 @@ def transformar_dados(ti):
 
     jobs = pd.concat([df1, df2, df3, df4], ignore_index=True)
 
-    data_hoje = datetime.today().strftime('%Y-%m-%d')
+    data = datetime.today() - timedelta(days=1)
+
+    data_hoje = data.strftime('%Y-%m-%d')
 
     jobs['date'] = data_hoje    
 
