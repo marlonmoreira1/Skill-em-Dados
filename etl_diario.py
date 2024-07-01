@@ -91,11 +91,9 @@ def transformar_dados(ti):
     df3 = pd.DataFrame(dados["cientista_dados"])
     df4 = pd.DataFrame(dados["engenheiro_dados"])   
 
-    jobs = pd.concat([df1, df2, df3, df4], ignore_index=True)
+    jobs = pd.concat([df1, df2, df3, df4], ignore_index=True)    
 
-    data = datetime.today() - timedelta(days=1)
-
-    data_hoje = data.strftime('%Y-%m-%d')
+    data_hoje = datetime.today().strftime('%Y-%m-%d')
 
     jobs['date'] = data_hoje    
 
