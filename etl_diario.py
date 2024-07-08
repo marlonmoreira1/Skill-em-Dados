@@ -283,6 +283,7 @@ credentials_info = {
     "universe_domain": universe_domain_var
 }
 
+credentials_json = os.environ.get("GOOGLE_CREDENTIALS")
 
 print("Credenciais carregadas com sucesso:")
 for key, value in credentials_info.items():
@@ -294,8 +295,8 @@ if '\\n' in credentials_info["private_key"]:
     credentials_info["private_key"] = credentials_info["private_key"].replace('\\n', '\n')
 
 try:
-    credentials = service_account.Credentials.from_service_account_info(credentials_info)
-    client = bigquery.Client(credentials=credentials, project=credentials_info['project_id'])
+    credentials = service_account.Credentials.from_service_account_info(credentials_json)
+    client = bigquery.Client(credentials=credentials, project=credentials_json['project_id'])
     print("Cliente BigQuery inicializado com sucesso.")
 except Exception as e:
     print(f"Erro ao inicializar cliente BigQuery: {e}")
