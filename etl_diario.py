@@ -257,7 +257,7 @@ dataframe = jobs[['company_name', 'via', 'job_id', 'unique_key',
 
 dataframe['date'] = dataframe['date'].astype(str)
 
-credentials = {
+credentials = service_account.Credentials.from_service_account_info({
   "type": os.environ["TYPE"],
   "project_id": os.environ["PROJECT_ID"],
   "private_key_id": os.environ["PRIVATE_KEY_ID"],
@@ -269,10 +269,10 @@ credentials = {
   "auth_provider_x509_cert_url": os.environ["AUTH_PROVIDER_X509_CERT_URL"],
   "client_x509_cert_url": os.environ["CLIENT_X509_CERT_URL"],
   "universe_domain": os.environ["UNIVERSE_DOMAIN"]
-}
+})
 
 
-client = bigquery.Client(credentials=service_account.Credentials.from_service_account_info(credentials), project=credentials['project_id'])
+client = bigquery.Client(credentials=service_account.Credentials.from_service_account_info(credentials), project=credentials.project_id)
 
 
 table_id = os.environ["TABLE_ID"]
