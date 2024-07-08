@@ -284,7 +284,7 @@ credentials_info = {
 }
 
 
-client = bigquery.Client(service_account.Credentials.from_service_account_info(credentials_info), project=credentials_info['project_id'])
+client = bigquery.Client(credentials=service_account.Credentials.from_service_account_info(credentials_info), project=credentials_info['project_id'])
 
 
 table_id = os.environ["TABLE_ID"]
