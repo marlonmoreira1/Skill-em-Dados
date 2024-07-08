@@ -57,7 +57,7 @@ def get_dados(query,api_key):
 
         numero_de_paginas += 10        
 
-        if numero_de_paginas >= 30:
+        if numero_de_paginas >= 10:
             break
         else:
             params['start'] = numero_de_paginas        
@@ -69,10 +69,10 @@ analista_bi = get_dados("Analista de Inteligência de Dados",analista_bi_key_api
 cientista_dados = get_dados("Cientista de Dados",cientista_dados_key_api)
 engenheiro_dados = get_dados("Engenheiro de Dados",engenheiro_dados_key_api)    
 
-df1 = pd.DataFrame(dados["analista_dados"])
-df2 = pd.DataFrame(dados["analista_bi"])
-df3 = pd.DataFrame(dados["cientista_dados"])
-df4 = pd.DataFrame(dados["engenheiro_dados"])   
+df1 = pd.DataFrame(analista_dados)
+df2 = pd.DataFrame(analista_bi)
+df3 = pd.DataFrame(cientista_dados)
+df4 = pd.DataFrame(engenheiro_dados)   
 
 jobs = pd.concat([df1, df2, df3, df4], ignore_index=True)
 
