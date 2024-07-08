@@ -290,8 +290,10 @@ credentials_file = "credentials_info.json"
 with open(credentials_file, "w") as json_file:
     json_file.write(json_data)
 
-client = bigquery.Client(credentials=service_account.Credentials.from_service_account_info(json_data), project=json_data['project_id'])
+with open(credentials_file, "r") as json_file:
+    credentials = json.load(json_file)
 
+client = bigquery.Client(credentials=service_account.Credentials.from_service_account_info(credentials), project=credentials['project_id'])
 
 table_id = os.environ["TABLE_ID"]
 
