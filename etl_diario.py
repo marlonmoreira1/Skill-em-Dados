@@ -269,7 +269,7 @@ auth_provider_x509_cert_url_var = os.environ["AUTH_PROVIDER_X509_CERT_URL"]
 client_x509_cert_url_var = os.environ["CLIENT_X509_CERT_URL"]
 universe_domain_var = os.environ["UNIVERSE_DOMAIN"]
 
-credentials = {
+credentials_info = {
     "type": type_var,
     "project_id": project_id_var,
     "private_key_id": private_key_id_var,
@@ -284,7 +284,22 @@ credentials = {
 }
 
 
-client = bigquery.Client(credentials=service_account.Credentials.from_service_account_info(credentials), project=credentials['project_id'])
+if '\\n' in credentials_info["private_key"]:
+    print("A chave privada contém '\\n', substituindo por quebras de linha reais.")
+    credentials_info["private_key"] = credentials_info["private_key"].replace('\\n', '\n')
+
+
+print("Credenciais carregadas com sucesso:")
+for key, value in credentials_info.items():
+    print(f"{key}: {'[REDACTED]' if 'key' in key else value}")
+
+
+try:
+    credentials = service_account.Credentials.from_service_account_info(credentials_info)
+    client = bigquery.Client(credentials=credentials, project=credentials_info['project_id'])
+    print("Cliente BigQuery inicializado com sucesso.")
+except Exception as e:
+    print(f"Erro ao inicializar cliente BigQuery: {e}")
 
 table_id = os.environ["TABLE_ID"]
 
