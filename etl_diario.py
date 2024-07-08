@@ -283,8 +283,14 @@ credentials_info = {
     "universe_domain": universe_domain_var
 }
 
+json_data = json.dumps(credentials_info)
 
-client = bigquery.Client(credentials=service_account.Credentials.from_service_account_info(credentials_info), project=credentials_info['project_id'])
+credentials_file = "credentials_info.json"
+
+with open(credentials_file, "w") as json_file:
+    json_file.write(json_data)
+
+client = bigquery.Client(credentials=service_account.Credentials.from_service_account_info(json_data), project=json_data['project_id'])
 
 
 table_id = os.environ["TABLE_ID"]
