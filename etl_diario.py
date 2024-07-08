@@ -264,13 +264,8 @@ credentials = {
   "universe_domain": os.environ["UNIVERSE_DOMAIN"]
 }
 
-credentials_file = os.environ["BigQuery_CREDENTIALS"]
 
-with open(credentials_file) as json_file:
-    json_data = json.load(json_file)
-
-
-client = bigquery.Client(credentials=service_account.Credentials.from_service_account_info(json_data), project=json_data['project_id'])
+client = bigquery.Client(credentials=service_account.Credentials.from_service_account_info(credentials), project=credentials['project_id'])
 
 
 table_id = os.environ["TABLE_ID"]
