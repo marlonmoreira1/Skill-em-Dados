@@ -32,18 +32,7 @@ jobs:
 
     - name: Run ETL script
       env:
-        GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
-        TYPE: ${{ secrets.TYPE }}
-        PROJECT_ID: ${{ secrets.PROJECT_ID }}
-        PRIVATE_KEY_ID: ${{ secrets.PRIVATE_KEY_ID }}
-        PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
-        CLIENT_EMAIL: ${{ secrets.CLIENT_EMAIL }}
-        CLIENT_ID: ${{ secrets.CLIENT_ID }}
-        AUTH_URI: ${{ secrets.AUTH_URI }}
-        TOKEN_URI: ${{ secrets.TOKEN_URI }}
-        AUTH_PROVIDER_X509_CERT_URL: ${{ secrets.AUTH_PROVIDER_X509_CERT_URL }}
-        CLIENT_X509_CERT_URL: ${{ secrets.CLIENT_X509_CERT_URL }}
-        UNIVERSE_DOMAIN: ${{ secrets.UNIVERSE_DOMAIN }}
+        GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}        
         TABLE_ID: ${{ secrets.TABLE_ID }}
         ANALISTA_DADOS_KEY_API: ${{ secrets.ANALISTA_DADOS_KEY_API }}
         ANALISTA_BI_KEY_API: ${{ secrets.ANALISTA_BI_KEY_API }}
