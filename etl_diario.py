@@ -8,6 +8,7 @@ import re
 import os
 import ast
 import uuid
+import base64
 from datetime import datetime, timedelta
 from listas_datajobs import xps, titulos, ferra, atividades, social, agil, grad, cont
 
@@ -268,7 +269,7 @@ token_uri_var = os.environ["TOKEN_URI"]
 auth_provider_x509_cert_url_var = os.environ["AUTH_PROVIDER_X509_CERT_URL"]
 client_x509_cert_url_var = os.environ["CLIENT_X509_CERT_URL"]
 universe_domain_var = os.environ["UNIVERSE_DOMAIN"]
-
+encoded_key = base64.b64encode(private_key_var.encode('utf-8')).decode('utf-8')
 credentials_info = {
     "type": type_var,
     "project_id": project_id_var,
@@ -296,8 +297,8 @@ if '\\n' in credentials_info["private_key"]:
     credentials_info["private_key"] = credentials_info["private_key"].replace('\\n', '\n')
 
 try:
-    credentials = service_account.Credentials.from_service_account_info(credentials_json)
-    client = bigquery.Client(credentials=credentials, project=credentials_json['project_id'])
+    credentials = service_account.Credentials.from_service_account_info(credentials_info)
+    client = bigquery.Client(credentials=credentials, project=credentials_info['project_id'])
     print("Cliente BigQuery inicializado com sucesso.")
 except Exception as e:
     print(f"Erro ao inicializar cliente BigQuery: {e}")
