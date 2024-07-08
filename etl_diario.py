@@ -284,7 +284,8 @@ credentials_info = {
 }
 
 credentials_json = os.environ["GOOGLE_CREDENTIALS"]
-
+if credentials_json:
+    credentials_info = json.loads(credentials_json)
 print("Credenciais carregadas com sucesso:")
 for key, value in credentials_info.items():
     print(f"{key}: {'[REDACTED]' if 'key' in key or 'email' in key else value}")
