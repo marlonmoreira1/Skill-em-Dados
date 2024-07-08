@@ -12,10 +12,10 @@ from datetime import datetime, timedelta
 from listas_datajobs import xps, titulos, ferra, atividades, social, agil, grad, cont
 
 
-analista_dados_key_api = os.environ["ANALISTA_DADOS_API_KEY"]
-analista_bi_key_api = os.environ["ANALISTA_BI_API_KEY"]
-cientista_dados_key_api = os.environ["CIENTISTA_DADOS_API_KEY"]
-engenheiro_dados_key_api = os.environ["ENGENHEIRO_DADOS_API_KEY"]
+analista_dados_key_api = os.environ["ANALISTA_DADOS_KEY_API"]
+analista_bi_key_api = os.environ["ANALISTA_BI_KEY_API"]
+cientista_dados_key_api = os.environ["CIENTISTA_DADOS_KEY_API"]
+engenheiro_dados_key_api = os.environ["ENGENHEIRO_DADOS_KEY_API"]
 
 
 def get_dados(query,api_key):
