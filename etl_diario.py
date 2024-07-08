@@ -258,32 +258,6 @@ dataframe = jobs[['company_name', 'via', 'job_id', 'unique_key',
 
 dataframe['date'] = dataframe['date'].astype(str)
 
-type_var = os.environ["TYPE"]
-project_id_var = os.environ["PROJECT_ID"]
-private_key_id_var = os.environ["PRIVATE_KEY_ID"]
-private_key_var = os.environ["PRIVATE_KEY"]
-client_email_var = os.environ["CLIENT_EMAIL"]
-client_id_var = os.environ["CLIENT_ID"]
-auth_uri_var = os.environ["AUTH_URI"]
-token_uri_var = os.environ["TOKEN_URI"]
-auth_provider_x509_cert_url_var = os.environ["AUTH_PROVIDER_X509_CERT_URL"]
-client_x509_cert_url_var = os.environ["CLIENT_X509_CERT_URL"]
-universe_domain_var = os.environ["UNIVERSE_DOMAIN"]
-
-credentials_dict = {
-    "type": type_var,
-    "project_id": project_id_var,
-    "private_key_id": private_key_id_var,
-    "private_key": private_key_var,
-    "client_email": client_email_var,
-    "client_id": client_id_var,
-    "auth_uri": auth_uri_var,
-    "token_uri": token_uri_var,
-    "auth_provider_x509_cert_url": auth_provider_x509_cert_url_var,
-    "client_x509_cert_url": client_x509_cert_url_var,
-    "universe_domain": universe_domain_var
-}
-
 credentials_json = os.environ["GOOGLE_CREDENTIALS"]
 
 credentials_info = json.loads(credentials_json)
