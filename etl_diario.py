@@ -253,7 +253,7 @@ jobs['tipo_contrato'] = jobs['tipo_contrato'].apply(lambda x: ','.join(x))
 dataframe = jobs[['company_name', 'via', 'job_id', 'unique_key',
            'date', 'xp', 'new_title', 'estado', 'cidade', 'is_remote',
            'hard_skills', 'complemento', 'soft_skills', 'graduacoes',
-           'metodologia_trabalho', 'tipo_contrato', 'cargo']]
+           'metodologia_trabalho', 'tipo_contrato']]
 
 
 dataframe['date'] = dataframe['date'].astype(str)
@@ -324,8 +324,7 @@ job_config = bigquery.LoadJobConfig(
     bigquery.SchemaField("soft_skills", "STRING", mode="NULLABLE"),
     bigquery.SchemaField("graduacoes", "STRING", mode="NULLABLE"),
     bigquery.SchemaField("metodologia_trabalho", "STRING", mode="NULLABLE"),
-    bigquery.SchemaField("tipo_contrato", "STRING", mode="NULLABLE"),
-    bigquery.SchemaField("cargo", "STRING", mode="NULLABLE")        
+    bigquery.SchemaField("tipo_contrato", "STRING", mode="NULLABLE")        
 ],
     
     write_disposition="WRITE_APPEND"
