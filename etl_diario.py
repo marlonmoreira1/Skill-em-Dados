@@ -72,7 +72,12 @@ engenheiro_dados = get_dados("Engenheiro de Dados",engenheiro_dados_key_api)
 df1 = pd.DataFrame(analista_dados)
 df2 = pd.DataFrame(analista_bi)
 df3 = pd.DataFrame(cientista_dados)
-df4 = pd.DataFrame(engenheiro_dados)   
+df4 = pd.DataFrame(engenheiro_dados)
+
+df1['cargo'] = 'Analista de Dados'
+df2['cargo'] = 'Analista de BI' 
+df3['cargo'] = 'Cientista de Dados'
+df4['cargo'] = 'Engenheiro de Dados' 
 
 jobs = pd.concat([df1, df2, df3, df4], ignore_index=True)
 
@@ -80,7 +85,9 @@ data = datetime.today() - timedelta(days=1)
 
 data_hoje = data.strftime('%Y-%m-%d')
 
-jobs['date'] = data_hoje    
+jobs['date'] = data_hoje
+
+jobs['unique_key'] = jobs.apply(lambda x: uuid.uuid4(), axis=1)
 
 jobs = jobs.drop_duplicates(subset=['title','company_name','description']).reset_index(drop=True)
 
