@@ -283,7 +283,7 @@ credentials_info = {
     "universe_domain": universe_domain_var
 }
 
-credentials_json = os.environ.get("GOOGLE_CREDENTIALS")
+credentials_json = os.environ["GOOGLE_CREDENTIALS"]
 
 print("Credenciais carregadas com sucesso:")
 for key, value in credentials_info.items():
