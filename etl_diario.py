@@ -322,7 +322,7 @@ job_config = bigquery.LoadJobConfig(
     bigquery.SchemaField("hard_skills", "STRING", mode="NULLABLE"),
     bigquery.SchemaField("complemento", "STRING", mode="NULLABLE"),
     bigquery.SchemaField("soft_skills", "STRING", mode="NULLABLE"),
-    bigquery.SchemaField("graduacoes", "STRING", mode="NULLABLE"),
+    bigquery.SchemaField("graduaçoes", "STRING", mode="NULLABLE"),
     bigquery.SchemaField("metodologia_trabalho", "STRING", mode="NULLABLE"),
     bigquery.SchemaField("tipo_contrato", "STRING", mode="NULLABLE")        
 ],
