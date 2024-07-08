@@ -260,7 +260,7 @@ dataframe['date'] = dataframe['date'].astype(str)
 type_var = os.environ["TYPE"]
 project_id_var = os.environ["PROJECT_ID"]
 private_key_id_var = os.environ["PRIVATE_KEY_ID"]
-private_key_var = os.environ["PRIVATE_KEY"].replace('\\n', '\n')
+private_key_var = os.environ["PRIVATE_KEY"]
 client_email_var = os.environ["CLIENT_EMAIL"]
 client_id_var = os.environ["CLIENT_ID"]
 auth_uri_var = os.environ["AUTH_URI"]
@@ -269,7 +269,7 @@ auth_provider_x509_cert_url_var = os.environ["AUTH_PROVIDER_X509_CERT_URL"]
 client_x509_cert_url_var = os.environ["CLIENT_X509_CERT_URL"]
 universe_domain_var = os.environ["UNIVERSE_DOMAIN"]
 
-credentials_info = {
+credentials = {
     "type": type_var,
     "project_id": project_id_var,
     "private_key_id": private_key_id_var,
@@ -283,15 +283,6 @@ credentials_info = {
     "universe_domain": universe_domain_var
 }
 
-json_data = json.dumps(credentials_info)
-
-credentials_file = "credentials_info.json"
-
-with open(credentials_file, "w") as json_file:
-    json_file.write(json_data)
-
-with open(credentials_file, "r") as json_file:
-    credentials = json.load(json_file)
 
 client = bigquery.Client(credentials=service_account.Credentials.from_service_account_info(credentials), project=credentials['project_id'])
 
