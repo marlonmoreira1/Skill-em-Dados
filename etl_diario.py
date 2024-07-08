@@ -253,7 +253,7 @@ jobs['tipo_contrato'] = jobs['tipo_contrato'].apply(lambda x: ','.join(x))
 dataframe = jobs[['company_name', 'via', 'job_id', 'unique_key',
            'date', 'xp', 'new_title', 'estado', 'cidade', 'is_remote',
            'hard_skills', 'complemento', 'soft_skills', 'graduacoes',
-           'metodologia_trabalho', 'tipo_contrato']]
+           'metodologia_trabalho', 'tipo_contrato','cargo']]
 
 
 dataframe['date'] = dataframe['date'].astype(str)
@@ -269,7 +269,9 @@ token_uri_var = os.environ["TOKEN_URI"]
 auth_provider_x509_cert_url_var = os.environ["AUTH_PROVIDER_X509_CERT_URL"]
 client_x509_cert_url_var = os.environ["CLIENT_X509_CERT_URL"]
 universe_domain_var = os.environ["UNIVERSE_DOMAIN"]
+
 encoded_key = base64.b64encode(private_key_var.encode('utf-8')).decode('utf-8')
+
 credentials_info = {
     "type": type_var,
     "project_id": project_id_var,
@@ -284,24 +286,8 @@ credentials_info = {
     "universe_domain": universe_domain_var
 }
 
-credentials_json = os.environ["GOOGLE_CREDENTIALS"]
-if credentials_json:
-    credentials_info = json.loads(credentials_json)
-print("Credenciais carregadas com sucesso:")
-for key, value in credentials_info.items():
-    print(f"{key}: {'[REDACTED]' if 'key' in key or 'email' in key else value}")
-
-
-if '\\n' in credentials_info["private_key"]:
-    print("A chave privada contém '\\n', substituindo por quebras de linha reais.")
-    credentials_info["private_key"] = credentials_info["private_key"].replace('\\n', '\n')
-
-try:
-    credentials = service_account.Credentials.from_service_account_info(credentials_info)
-    client = bigquery.Client(credentials=credentials, project=credentials_info['project_id'])
-    print("Cliente BigQuery inicializado com sucesso.")
-except Exception as e:
-    print(f"Erro ao inicializar cliente BigQuery: {e}")
+credentials = service_account.Credentials.from_service_account_info(credentials_info)
+client = bigquery.Client(credentials=credentials, project=credentials_info['project_id'])
 
 table_id = os.environ["TABLE_ID"]
 
@@ -322,9 +308,10 @@ job_config = bigquery.LoadJobConfig(
     bigquery.SchemaField("hard_skills", "STRING", mode="NULLABLE"),
     bigquery.SchemaField("complemento", "STRING", mode="NULLABLE"),
     bigquery.SchemaField("soft_skills", "STRING", mode="NULLABLE"),
-    bigquery.SchemaField("graduaçoes", "STRING", mode="NULLABLE"),
+    bigquery.SchemaField("graduacoes", "STRING", mode="NULLABLE"),
     bigquery.SchemaField("metodologia_trabalho", "STRING", mode="NULLABLE"),
-    bigquery.SchemaField("tipo_contrato", "STRING", mode="NULLABLE")        
+    bigquery.SchemaField("tipo_contrato", "STRING", mode="NULLABLE"),
+    bigquery.SchemaField("cargo", "STRING", mode="NULLABLE")
 ],
     
     write_disposition="WRITE_APPEND"
