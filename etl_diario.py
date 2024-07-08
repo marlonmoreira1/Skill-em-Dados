@@ -272,7 +272,7 @@ credentials = service_account.Credentials.from_service_account_info({
 })
 
 
-client = bigquery.Client(credentials=service_account.Credentials.from_service_account_info(credentials), project=credentials.project_id)
+client = bigquery.Client(credentials=credentials, project=credentials.project_id)
 
 
 table_id = os.environ["TABLE_ID"]
