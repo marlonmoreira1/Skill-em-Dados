@@ -284,15 +284,14 @@ credentials_info = {
 }
 
 
+print("Credenciais carregadas com sucesso:")
+for key, value in credentials_info.items():
+    print(f"{key}: {'[REDACTED]' if 'key' in key or 'email' in key else value}")
+
+
 if '\\n' in credentials_info["private_key"]:
     print("A chave privada contém '\\n', substituindo por quebras de linha reais.")
     credentials_info["private_key"] = credentials_info["private_key"].replace('\\n', '\n')
-
-
-print("Credenciais carregadas com sucesso:")
-for key, value in credentials_info.items():
-    print(f"{key}: {'[REDACTED]' if 'key' in key else value}")
-
 
 try:
     credentials = service_account.Credentials.from_service_account_info(credentials_info)
