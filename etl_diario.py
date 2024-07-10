@@ -58,7 +58,7 @@ def get_dados(query,api_key):
 
         numero_de_paginas += 10        
 
-        if numero_de_paginas >= 10:
+        if numero_de_paginas >= 30:
             break
         else:
             params['start'] = numero_de_paginas        
