@@ -48,10 +48,7 @@ def get_dados(query,api_key):
             break
 
         for result in result_dict['jobs_results']:
-            google_jobs_results.append(result)
-
-        for result in result_dict['chips']:
-            complement_information.append(result)
+            google_jobs_results.append(result)        
 
         if len(result_dict['jobs_results']) < 10:
             break
