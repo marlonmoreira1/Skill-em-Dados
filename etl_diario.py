@@ -50,9 +50,6 @@ def get_dados(query,api_key):
         for result in result_dict['jobs_results']:
             google_jobs_results.append(result)        
 
-        if len(result_dict['jobs_results']) < 10:
-            break
-
         numero_de_paginas += 10        
 
         if numero_de_paginas >= 30:
