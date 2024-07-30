@@ -79,6 +79,9 @@ df4['cargo'] = 'Engenheiro de Dados'
 
 jobs = pd.concat([df1, df2, df3, df4], ignore_index=True)
 
+print(f'dados carregados {jobs.shape}')
+print(f'{jobs.columns}')
+
 data = datetime.today() - timedelta(days=1)
 
 data_hoje = data.strftime('%Y-%m-%d')
