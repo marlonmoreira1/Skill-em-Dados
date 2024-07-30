@@ -18,7 +18,7 @@ analista_bi_key_api = os.environ["ANALISTA_BI_KEY_API"]
 cientista_dados_key_api = os.environ["CIENTISTA_DADOS_KEY_API"]
 engenheiro_dados_key_api = os.environ["ENGENHEIRO_DADOS_KEY_API"]
 
-print(analista_dados_key_api)
+
 def get_dados(query,api_key):
     
     params = {
@@ -75,9 +75,6 @@ df3['cargo'] = 'Cientista de Dados'
 df4['cargo'] = 'Engenheiro de Dados' 
 
 jobs = pd.concat([df1, df2, df3, df4], ignore_index=True)
-
-print(f'dados carregados {jobs.shape}')
-print(f'{jobs.columns}')
 
 data = datetime.today() - timedelta(days=1)
 
