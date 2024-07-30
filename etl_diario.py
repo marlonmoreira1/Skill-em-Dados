@@ -28,7 +28,8 @@ def get_dados(query,api_key):
       "gl": "br",
       "hl": "pt-br",
       "location": "Brazil",      
-      "chips": "today",  
+      "date_posted": "today",
+      "chips": "date_posted:today",  
       "api_key": api_key,
       "output": "JSON"  
     }
@@ -56,7 +57,7 @@ def get_dados(query,api_key):
         if numero_de_paginas >= 30:
             break
         else:
-            params['start'] = numero_de_paginas        
+            result_dict['serpapi_pagination']['next']        
         
     return google_jobs_results
 
