@@ -18,7 +18,7 @@ analista_bi_key_api = os.environ["ANALISTA_BI_KEY_API"]
 cientista_dados_key_api = os.environ["CIENTISTA_DADOS_KEY_API"]
 engenheiro_dados_key_api = os.environ["ENGENHEIRO_DADOS_KEY_API"]
 
-
+print(analista_dados_key_api)
 def get_dados(query,api_key):
     
     params = {
