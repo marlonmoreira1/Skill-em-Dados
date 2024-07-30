@@ -28,9 +28,7 @@ def get_dados(query,api_key):
       "gl": "br",
       "hl": "pt-br",
       "location": "Brazil",      
-      "start": 0,
-      "date_posted": "today",
-      "chips": "date_posted:today",  
+      "chips": "today",  
       "api_key": api_key,
       "output": "JSON"  
     }
@@ -48,7 +46,10 @@ def get_dados(query,api_key):
             break
 
         for result in result_dict['jobs_results']:
-            google_jobs_results.append(result)        
+            google_jobs_results.append(result)
+
+        if len(result_dict['jobs_results']) < 10:
+            break
 
         numero_de_paginas += 10        
 
