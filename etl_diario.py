@@ -54,7 +54,7 @@ def get_dados(query,api_key):
 
         numero_de_paginas += 10        
 
-        if numero_de_paginas >= 30:
+        if numero_de_paginas >= 30 or 'serpapi_pagination' not in result_dict:
             break
         else:
             result_dict['serpapi_pagination']['next']        
