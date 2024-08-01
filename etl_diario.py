@@ -28,8 +28,7 @@ def get_dados(query,api_key):
       "gl": "br",
       "hl": "pt-br",
       "location": "Brazil",      
-      "date_posted": "today",
-      "chips": "today",  
+      "chips": "date_posted:today",  
       "api_key": api_key,
       "output": "JSON"  
     }
