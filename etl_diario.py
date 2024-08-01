@@ -54,10 +54,10 @@ def get_dados(query,api_key):
         
     return google_jobs_results
 
-analista_dados = get_dados("Analista Dados",analista_dados_key_api)
-analista_bi = get_dados("Analista BI",analista_bi_key_api)
-cientista_dados = get_dados("Cientista Dados",cientista_dados_key_api)
-engenheiro_dados = get_dados("Engenheiro Dados",engenheiro_dados_key_api)    
+analista_dados = get_dados("análise de dados",analista_dados_key_api)
+analista_bi = get_dados("bi",analista_bi_key_api)
+cientista_dados = get_dados("ciência de dados",cientista_dados_key_api)
+engenheiro_dados = get_dados("engenharia de dados",engenheiro_dados_key_api)    
 
 df1 = pd.DataFrame(analista_dados)
 df2 = pd.DataFrame(analista_bi)
