@@ -41,16 +41,10 @@ def get_dados(query,api_key):
     while True:
 
         search = GoogleSearch(params)
-        result_dict = search.get_dict()
-
-        if 'error' in result_dict:
-            break
+        result_dict = search.get_dict()       
 
         for result in result_dict['jobs_results']:
             google_jobs_results.append(result)
-
-        if len(result_dict['jobs_results']) < 10:
-            break
 
         numero_de_paginas += 10        
 
