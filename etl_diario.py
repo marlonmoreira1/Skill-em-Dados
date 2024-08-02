@@ -43,14 +43,14 @@ def get_dados(query,api_key):
         result_dict = search.get_dict()       
 
         for result in result_dict['jobs_results']:
-            google_jobs_results.append(result)
-
-        numero_de_paginas += 10        
+            google_jobs_results.append(result)                
 
         if numero_de_paginas >= 30 or 'serpapi_pagination' not in result_dict:
             break
         else:
-            result_dict['serpapi_pagination']['next']        
+            result_dict['serpapi_pagination']['next']
+
+        numero_de_paginas += 10
         
     return google_jobs_results
 
