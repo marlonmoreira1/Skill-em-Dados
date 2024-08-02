@@ -28,7 +28,7 @@ def get_dados(query,api_key):
       "gl": "br",
       "hl": "pt-br",
       "location": "Brazil",      
-      "chips": "date_posted:today",  
+      "chips": "date_posted: today",  
       "api_key": api_key,
       "output": "JSON"  
     }
@@ -37,9 +37,10 @@ def get_dados(query,api_key):
     google_jobs_results = []
     complement_information = []
 
-    while True:
+    search = GoogleSearch(params)
 
-        search = GoogleSearch(params)
+    while True:
+        
         result_dict = search.get_dict()       
 
         for result in result_dict['jobs_results']:
@@ -48,7 +49,7 @@ def get_dados(query,api_key):
         if numero_de_paginas >= 30 or 'serpapi_pagination' not in result_dict:
             break
         else:
-            result_dict['serpapi_pagination']['next']
+            search = result_dict['serpapi_pagination']['next']
 
         numero_de_paginas += 10
         
