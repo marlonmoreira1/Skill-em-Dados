@@ -35,12 +35,12 @@ def get_dados(query,api_key):
 
     numero_de_paginas = 0
     google_jobs_results = []
-    complement_information = []
-
-    search = GoogleSearch(params)
-    result_dict = search.get_dict() 
+    complement_information = []     
 
     while True:
+
+        search = GoogleSearch(params)
+        result_dict = search.get_dict()
         
         for result in result_dict['jobs_results']:
             google_jobs_results.append(result)                
@@ -48,15 +48,15 @@ def get_dados(query,api_key):
         if numero_de_paginas >= 30 or 'serpapi_pagination' not in result_dict:
             break
         else:
-            result_dict['serpapi_pagination']['next']
+            params['next_page_token'] = result_dict['serpapi_pagination']['next_page_token']
 
         numero_de_paginas += 10
         
     return google_jobs_results
 
-analista_dados = get_dados("análise de dados",analista_dados_key_api)
-analista_bi = get_dados("bi",analista_bi_key_api)
-cientista_dados = get_dados("ciência de dados",cientista_dados_key_api)
+analista_dados = get_dados("analista de dados",analista_dados_key_api)
+analista_bi = get_dados("BI",analista_bi_key_api)
+cientista_dados = get_dados("cientista de dados",cientista_dados_key_api)
 engenheiro_dados = get_dados("engenheiro dados",engenheiro_dados_key_api)    
 
 df1 = pd.DataFrame(analista_dados)
