@@ -38,18 +38,17 @@ def get_dados(query,api_key):
     complement_information = []
 
     search = GoogleSearch(params)
+    result_dict = search.get_dict() 
 
     while True:
         
-        result_dict = search.get_dict()       
-
         for result in result_dict['jobs_results']:
             google_jobs_results.append(result)                
 
         if numero_de_paginas >= 30 or 'serpapi_pagination' not in result_dict:
             break
         else:
-            search = result_dict['serpapi_pagination']['next']
+            result_dict['serpapi_pagination']['next']
 
         numero_de_paginas += 10
         
