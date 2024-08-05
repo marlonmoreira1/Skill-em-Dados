@@ -95,7 +95,7 @@ tipo_contrato = cont()
 def extrair_ferramentas(linha,ferramentas):    
     return [ferramenta for ferramenta in ferramentas if re.search(r'\b{}\b'.format(ferramenta.lower()), linha.lower(), re.IGNORECASE)]
 
-jobs['combined_columns'] = jobs['description'] + ' ' + jobs['title']
+jobs['combined_columns'] = jobs['title'] + ' ' + jobs['description'] 
 
 
 jobs['experience'] = jobs['combined_columns'].apply(extrair_ferramentas,args=(elementos_filtrados,))
