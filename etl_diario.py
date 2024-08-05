@@ -27,7 +27,8 @@ def get_dados(query,api_key):
       "google_domain": "google.com.br",
       "gl": "br",
       "hl": "pt-br",
-      "location": "Brazil",      
+      "location": "Brazil",
+      "date_posted": "today",
       "chips": "date_posted: today",  
       "api_key": api_key,
       "output": "JSON"  
