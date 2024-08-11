@@ -58,7 +58,7 @@ def get_dados(query,api_key):
 analista_dados = get_dados("análise de dados",analista_dados_key_api)
 analista_bi = get_dados("BI",analista_bi_key_api)
 cientista_dados = get_dados("ciência de dados",cientista_dados_key_api)
-engenheiro_dados = get_dados("engenheiro dados",engenheiro_dados_key_api)    
+engenheiro_dados = get_dados("Engenheiro de Dados",engenheiro_dados_key_api)    
 
 df1 = pd.DataFrame(analista_dados)
 df2 = pd.DataFrame(analista_bi)
