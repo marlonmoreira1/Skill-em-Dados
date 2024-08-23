@@ -229,6 +229,8 @@ jobs['via'] = jobs['via'].replace('via','',regex=True)
 
 def extrair_skills(linha,ferramentas):
     return [ferramenta for ferramenta in ferramentas if re.search(r'\b{}\b'.format(ferramenta.lower()), linha.lower(), re.IGNORECASE)]
+
+
 jobs['hard_skills'] = jobs['description'].apply(extrair_skills,args=(hard_skills,))
 jobs['complemento'] = jobs['description'].apply(extrair_skills,args=(complemento,))
 jobs['soft_skills'] = jobs['description'].apply(extrair_skills,args=(soft_skills,))
