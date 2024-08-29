@@ -6,7 +6,7 @@ import json
 import plotly.express as px
 import pandas as pd
 from processamento.Processamento import identificar_categoria, padronizar_ferramentas, padronizar_xp, padronizar_cargo, padronizar_metodologia
-from grafico.Grafico import make_bar, make_pie,make_bar_with_no_slice
+from processamento.Grafico import make_bar, make_pie,make_bar_with_no_slice
 
 st.set_page_config(page_title='Dados Sobre Dados',layout='wide')        
         
