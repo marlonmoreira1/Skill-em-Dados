@@ -42,4 +42,4 @@ jobs:
         CIENTISTA_DADOS_KEY_API: ${{ secrets.CIENTISTA_DADOS_KEY_API }}
         ENGENHEIRO_DADOS_KEY_API: ${{ secrets.ENGENHEIRO_DADOS_KEY_API }}
       run: |
-        python backup_principal.py
+        python backup/backup_principal.py
