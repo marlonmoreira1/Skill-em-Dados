@@ -4,7 +4,7 @@ from google.oauth2 import service_account
 import json
 import plotly.express as px
 import pandas as pd
-from Processamento import padronizar_ferramentas, padronizar_cargo, padronizar_xp
+from processamento.Processamento import padronizar_ferramentas, padronizar_cargo, padronizar_xp
 
 st.set_page_config(page_title='Dados Sobre Dados',layout='wide')
 
