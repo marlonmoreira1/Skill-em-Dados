@@ -39,6 +39,7 @@ SELECT
 company_name,
 via,
 job_id,
+unique_key,
 date,
 xp,
 new_title,
