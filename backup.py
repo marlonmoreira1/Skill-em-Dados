@@ -60,7 +60,7 @@ WHERE
     """)
 
 
-table_id = 'backup_dados'
+table_id = os.environ["BACKUP_TABLE_ID"]
 
 job_config = bigquery.LoadJobConfig(
     
