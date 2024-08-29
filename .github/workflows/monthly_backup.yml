@@ -1,12 +1,9 @@
 name: Run Script Every Two Months
 
 on:
-  schedule:
-    # Rodar às 06:00 do dia 30 de agosto (amanhã)
-    - cron: '0 6 30 8 *'
-    # Rodar às 06:00 do dia 30 de outubro (dois meses depois)
-    - cron: '0 6 30 10 *'
-    # Rodar às 06:00 do dia 30 de dezembro (dois meses depois)
+  schedule:    
+    - cron: '0 6 30 8 *'    
+    - cron: '0 6 30 10 *'    
     - cron: '0 6 30 12 *'
   workflow_dispatch:
 
