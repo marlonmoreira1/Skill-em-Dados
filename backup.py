@@ -85,7 +85,7 @@ job_config = bigquery.LoadJobConfig(
 ],
     
     write_disposition="WRITE_APPEND"
-)'
+)
 
 job = client.load_table_from_dataframe(
     dataframe, table_id, job_config=job_config
