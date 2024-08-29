@@ -39,6 +39,7 @@ jobs:
       env:
         GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}        
         TABLE_ID: ${{ secrets.TABLE_ID }}
+        BACKUP_TABLE_ID: ${{ secrets.BACKUP_TABLE_ID }}
         ANALISTA_DADOS_KEY_API: ${{ secrets.ANALISTA_DADOS_KEY_API }}
         ANALISTA_BI_KEY_API: ${{ secrets.ANALISTA_BI_KEY_API }}
         CIENTISTA_DADOS_KEY_API: ${{ secrets.CIENTISTA_DADOS_KEY_API }}
