@@ -43,7 +43,7 @@ def get_dados(query,api_key):
         search = GoogleSearch(params)
         result_dict = search.get_dict()
         
-        if 'jobs_results' not in result_dict or not result_dict['jobs_results']:
+        if 'jobs_results' not in result_dict:
             break
             
         for result in result_dict['jobs_results']:
