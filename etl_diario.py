@@ -58,22 +58,22 @@ def get_dados(query,api_key):
         
     return google_jobs_results
 
-analista_dados = get_dados("'dados' AND 'analise'", analista_dados_key_api)
+#analista_dados = get_dados("'dados' AND 'analise'", analista_dados_key_api)
 analista_bi = get_dados("'Business Intelligence' AND 'analista'", analista_bi_key_api)
 cientista_dados = get_dados("'dados' AND 'ciencia'", cientista_dados_key_api)
 engenheiro_dados = get_dados("'dados' AND 'engenheiro'", engenheiro_dados_key_api)    
 
-df1 = pd.DataFrame(analista_dados)
+#df1 = pd.DataFrame(analista_dados)
 df2 = pd.DataFrame(analista_bi)
 df3 = pd.DataFrame(cientista_dados)
 df4 = pd.DataFrame(engenheiro_dados)
 
-df1['cargo'] = 'Analista de Dados'
+#df1['cargo'] = 'Analista de Dados'
 df2['cargo'] = 'Analista de BI' 
 df3['cargo'] = 'Cientista de Dados'
 df4['cargo'] = 'Engenheiro de Dados' 
 
-jobs = pd.concat([df1, df2, df3, df4], ignore_index=True)
+jobs = pd.concat([df2, df3, df4], ignore_index=True)
 
 data = datetime.today() - timedelta(days=1)
 
