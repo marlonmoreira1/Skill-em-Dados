@@ -215,14 +215,6 @@ def padronizar_(linha):
 jobs['estado'] = jobs['estado'].apply(padronizar_)
 jobs['cidade'] = jobs['cidade'].apply(padronizar_)
 
-def remote_work(linha):
-   
-    if 'work_from_home' in linha and 'True' in linha:
-        return True
-    else:
-        return False
-
-jobs['is_remote'] = jobs['detected_extensions'].apply(remote_work)
 
 jobs['via'] = jobs['via'].replace('via','',regex=True)
 
@@ -245,7 +237,7 @@ jobs['metodologia_trabalho'] = jobs['metodologia_trabalho'].apply(lambda x: ','.
 jobs['tipo_contrato'] = jobs['tipo_contrato'].apply(lambda x: ','.join(x))
 
 dataframe = jobs[['company_name', 'via', 'job_id', 'unique_key',
-           'date', 'xp', 'new_title', 'estado', 'cidade', 'is_remote',
+           'date', 'xp', 'new_title', 'estado', 'cidade',
            'hard_skills', 'complemento', 'soft_skills', 'graduacoes',
            'metodologia_trabalho', 'tipo_contrato','cargo']]
 
@@ -274,8 +266,7 @@ job_config = bigquery.LoadJobConfig(
     bigquery.SchemaField("xp", "STRING", mode="NULLABLE"),
     bigquery.SchemaField("new_title", "STRING", mode="NULLABLE"),
     bigquery.SchemaField("cidade", "STRING", mode="NULLABLE"),
-    bigquery.SchemaField("estado", "STRING", mode="NULLABLE"),
-    bigquery.SchemaField("is_remote", "BOOLEAN", mode="NULLABLE"),
+    bigquery.SchemaField("estado", "STRING", mode="NULLABLE"),    
     bigquery.SchemaField("hard_skills", "STRING", mode="NULLABLE"),
     bigquery.SchemaField("complemento", "STRING", mode="NULLABLE"),
     bigquery.SchemaField("soft_skills", "STRING", mode="NULLABLE"),
