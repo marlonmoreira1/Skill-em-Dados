@@ -18,20 +18,18 @@ analista_bi_key_api = os.environ["ANALISTA_BI_KEY_API"]
 cientista_dados_key_api = os.environ["CIENTISTA_DADOS_KEY_API"]
 engenheiro_dados_key_api = os.environ["ENGENHEIRO_DADOS_KEY_API"]
 
-
-def get_dados(query,api_key):
-    
-    params = {
+params = {
       "engine": "google_jobs",
-      "q": query,
+      "q": "dados",
       "google_domain": "google.com.br",
       "gl": "br",
       "hl": "pt-br",
       "location": "Brazil",      
-      "chips": "date_posted:today",  
-      "api_key": api_key,
+      "chips": "date_posted:today",      
       "output": "JSON"  
     }
+
+def get_dados(params):    
 
     numero_de_paginas = 0
     google_jobs_results = []
@@ -48,19 +46,34 @@ def get_dados(query,api_key):
         for result in result_dict['jobs_results']:
             google_jobs_results.append(result)                
 
-        if numero_de_paginas >= 40 or 'serpapi_pagination' not in result_dict:
+        if numero_de_paginas >= 20 or 'serpapi_pagination' not in result_dict:
             break
         else:
             params['next_page_token'] = result_dict['serpapi_pagination']['next_page_token']
 
         numero_de_paginas += 10
         
-    return google_jobs_results
+    return google_jobs_results, params['next_page_token']
 
-analista_dados = get_dados("analista de dados", analista_dados_key_api)
-analista_bi = get_dados("analista de business intelligence", analista_bi_key_api)
-cientista_dados = get_dados("cientista de dados", cientista_dados_key_api)
-engenheiro_dados = get_dados("engenheiro de dados", engenheiro_dados_key_api)    
+
+params['api_key'] = analista_dados_key_api
+analista_dados, next_page_token_ad = get_dados(params)
+params['next_page_token'] = next_page_token_ad
+
+
+params['api_key'] = analista_bi_key_api
+analista_bi, next_page_token_bi = get_dados(params)
+params['next_page_token'] = next_page_token_bi
+
+
+params['api_key'] = cientista_dados_key_api
+cientista_dados, next_page_token_cd = get_dados(params)
+params['next_page_token'] = next_page_token_cd
+
+
+params['api_key'] = engenheiro_dados_key_api
+engenheiro_dados, next_page_token_ed = get_dados(params)
+params['next_page_token'] = next_page_token_ed  
 
 df1 = pd.DataFrame(analista_dados)
 df2 = pd.DataFrame(analista_bi)
