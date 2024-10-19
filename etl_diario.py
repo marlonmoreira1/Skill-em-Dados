@@ -19,8 +19,7 @@ cientista_dados_key_api = os.environ["CIENTISTA_DADOS_KEY_API"]
 engenheiro_dados_key_api = os.environ["ENGENHEIRO_DADOS_KEY_API"]
 
 params = {
-      "engine": "google_jobs",
-      "q": "dados",
+      "engine": "google_jobs",      
       "google_domain": "google.com.br",
       "gl": "br",
       "hl": "pt-br",
@@ -55,25 +54,26 @@ def get_dados(params):
         
     return google_jobs_results, params['next_page_token']
 
-
+params['q'] = "analista de dados"
 params['api_key'] = analista_dados_key_api
 analista_dados, next_page_token_ad = get_dados(params)
+
+
 params['next_page_token'] = next_page_token_ad
-
-
 params['api_key'] = analista_bi_key_api
 analista_bi, next_page_token_bi = get_dados(params)
-params['next_page_token'] = next_page_token_bi
 
 
+params['q'] = "cientista de dados"
 params['api_key'] = cientista_dados_key_api
+params.pop('next_page_token', None)
 cientista_dados, next_page_token_cd = get_dados(params)
+
+
 params['next_page_token'] = next_page_token_cd
-
-
 params['api_key'] = engenheiro_dados_key_api
 engenheiro_dados, next_page_token_ed = get_dados(params)
-params['next_page_token'] = next_page_token_ed  
+
 
 df1 = pd.DataFrame(analista_dados)
 df2 = pd.DataFrame(analista_bi)
