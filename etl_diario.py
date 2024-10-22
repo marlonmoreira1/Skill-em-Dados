@@ -52,29 +52,24 @@ def get_dados(params):
 
         numero_de_paginas += 10
         
-    return google_jobs_results, params['next_page_token']
+    return google_jobs_results
 
 params['q'] = "analista de dados"
 params['api_key'] = analista_dados_key_api
-analista_dados, next_page_token_ad = get_dados(params)
+analista_dados = get_dados(params)
 
-if len(next_page_token_ad) > 0:
-      params['next_page_token'] = next_page_token_ad
-      
+params['q'] = "analista de bi"    
 params['api_key'] = analista_bi_key_api
-analista_bi, next_page_token_bi = get_dados(params)
+analista_bi = get_dados(params)
 
 
 params['q'] = "cientista de dados"
 params['api_key'] = cientista_dados_key_api
-params.pop('next_page_token', None)
-cientista_dados, next_page_token_cd = get_dados(params)
+cientista_dados = get_dados(params)
 
-if len(next_page_token_cd) > 0:
-      params['next_page_token'] = next_page_token_cd
-
+params['q'] = "engenheiro de dados"
 params['api_key'] = engenheiro_dados_key_api
-engenheiro_dados, next_page_token_ed = get_dados(params)
+engenheiro_dados = get_dados(params)
 
 
 df1 = pd.DataFrame(analista_dados)
