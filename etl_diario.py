@@ -54,20 +54,20 @@ def get_dados(params):
         
     return google_jobs_results
 
-params['q'] = "analista de dados junior"
+params['q'] = "analista de dados"
 params['api_key'] = analista_dados_key_api
 analista_dados = get_dados(params)
 
-params['q'] = "analista de dados senior"    
+params['q'] = "analista de bi"    
 params['api_key'] = analista_bi_key_api
 analista_bi = get_dados(params)
 
 
-params['q'] = "cientista de dados junior"
+params['q'] = "cientista de dados"
 params['api_key'] = cientista_dados_key_api
 cientista_dados = get_dados(params)
 
-params['q'] = "cientista de dados senior"
+params['q'] = "engenheiro de dados"
 params['api_key'] = engenheiro_dados_key_api
 engenheiro_dados = get_dados(params)
 
