@@ -24,7 +24,7 @@ params = {
       "gl": "br",
       "hl": "pt-br",
       "location": "Brazil",      
-      "chips": "date_posted:today",      
+      "chips": "date_posted:Yesterday",      
       "output": "JSON"  
     }
 
@@ -54,7 +54,7 @@ def get_dados(params):
         
     return pd.DataFrame(google_jobs_results)
 
-cargos = ["analise de dados", "bi", "ciencia de dados", "engenharia de dados"]
+cargos = ["analista de dados", "analista de bi", "cientista de dados", "engenheiro de dados"]
 
 api_keys = {
     "analise de dados": analista_dados_key_api,
