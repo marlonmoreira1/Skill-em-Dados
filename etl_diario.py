@@ -24,7 +24,7 @@ params = {
       "gl": "br",
       "hl": "pt-br",
       "location": "Brazil",      
-      "chips": "date_posted:Yesterday",      
+      "chips": "date_posted:today",      
       "output": "JSON"  
     }
 
