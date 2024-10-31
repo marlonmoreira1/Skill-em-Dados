@@ -23,8 +23,7 @@ params = {
       "google_domain": "google.com.br",
       "gl": "br",
       "hl": "pt-br",
-      "location": "Brazil",      
-      "chips": "date_posted:today",      
+      "location": "Brazil",            
       "output": "JSON"  
     }
 
@@ -45,7 +44,7 @@ def get_dados(params):
         for result in result_dict['jobs_results']:
             google_jobs_results.append(result)                
 
-        if numero_de_paginas >= 40 or 'serpapi_pagination' not in result_dict:
+        if numero_de_paginas >= 10 or 'serpapi_pagination' not in result_dict:
             break
         else:
             params['next_page_token'] = result_dict['serpapi_pagination']['next_page_token']
@@ -63,11 +62,21 @@ api_keys = {
     "engenheiro de dados": engenheiro_dados_key_api
 }
 
+chips = {
+    "analista de dados": "date_posted:today,job_family_1:analista de dados",
+    "analista de bi": "date_posted:today,job_family_1:analista de bi",
+    "cientista de dados": "date_posted:today,job_family_1:cientista de dados",
+    "engenheiro de dados": "date_posted:today,job_family_1:engenheiro de dados"
+}
+
+q = "dados"
+
 dataframes = []
 
 for cargo in cargos:    
   params['q'] = cargo
-  params['api_key'] = api_keys[cargo]  
+  params['api_key'] = api_keys[cargo]
+  params['chips'] = chips[cargo]
   df = get_dados(params)        
   
   df['cargo'] = cargo
@@ -256,8 +265,7 @@ client = bigquery.Client(credentials=credentials, project=credentials_info['proj
 
 table_id = os.environ["TABLE_ID"]
 
-job_config = bigquery.LoadJobConfig(
-    
+job_config = bigquery.LoadJobConfig(  
     
     schema = [
     bigquery.SchemaField("job_id", "STRING", mode="NULLABLE"),
