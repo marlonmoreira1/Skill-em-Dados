@@ -44,7 +44,7 @@ def get_dados(params):
         for result in result_dict['jobs_results']:
             google_jobs_results.append(result)                
 
-        if numero_de_paginas >= 10 or 'serpapi_pagination' not in result_dict:
+        if numero_de_paginas >= 0 or 'serpapi_pagination' not in result_dict:
             break
         else:
             params['next_page_token'] = result_dict['serpapi_pagination']['next_page_token']
@@ -52,8 +52,10 @@ def get_dados(params):
         numero_de_paginas += 10
         
     return pd.DataFrame(google_jobs_results)
+      
 
 cargos = ["analista de dados", "analista de bi", "cientista de dados", "engenheiro de dados"]
+
 
 api_keys = {
     "analista de dados": analista_dados_key_api,
@@ -69,12 +71,18 @@ chips = {
     "engenheiro de dados": "date_posted:today,job_family_1:engenheiro de dados"
 }
 
+q = {
+    "analista de dados": 'análise de dados',
+    "analista de bi": 'análise de dados',
+    "cientista de dados": 'ciência de dados',
+    "engenheiro de dados": 'ciência de dados'
+}
+
+
 dataframes = []
 
-q = 'ciência de dados'
-
 for cargo in cargos:    
-  params['q'] = q
+  params['q'] = q[cargo]
   params['api_key'] = api_keys[cargo]
   params['chips'] = chips[cargo]
   df = get_dados(params)        
