@@ -30,8 +30,6 @@ params = {
 def get_dados(params):    
 
     numero_de_paginas = 0
-    google_jobs_results = []
-    complement_information = []     
 
     while True:
 
@@ -41,8 +39,7 @@ def get_dados(params):
         if 'jobs_results' not in result_dict:
             break
             
-        for result in result_dict['jobs_results']:
-            google_jobs_results.append(result)                
+        google_jobs_results = [result for result in result_dict['jobs_results']]              
 
         if numero_de_paginas >= 0 or 'serpapi_pagination' not in result_dict:
             break
