@@ -71,8 +71,10 @@ chips = {
 
 dataframes = []
 
+q = 'ciência de dados'
+
 for cargo in cargos:    
-  params['q'] = cargo
+  params['q'] = q
   params['api_key'] = api_keys[cargo]
   params['chips'] = chips[cargo]
   df = get_dados(params)        
