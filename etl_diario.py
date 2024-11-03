@@ -69,12 +69,10 @@ chips = {
     "engenheiro de dados": "date_posted:today,job_family_1:engenheiro de dados"
 }
 
-q = "ciencia de dados"
-
 dataframes = []
 
 for cargo in cargos:    
-  params['q'] = q
+  params['q'] = cargo
   params['api_key'] = api_keys[cargo]
   params['chips'] = chips[cargo]
   df = get_dados(params)        
