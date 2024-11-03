@@ -69,7 +69,7 @@ chips = {
     "engenheiro de dados": "date_posted:today,job_family_1:engenheiro de dados"
 }
 
-q = "dados"
+q = "ciencia de dados"
 
 dataframes = []
 
