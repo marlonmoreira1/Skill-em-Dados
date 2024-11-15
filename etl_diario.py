@@ -38,6 +38,7 @@ def get_dados(params):
         
         if 'jobs_results' not in result_dict:
             break
+            return pd.DataFrame()
             
         google_jobs_results = [result for result in result_dict['jobs_results']]              
 
