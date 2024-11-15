@@ -1,4 +1,4 @@
-name: Run Script Every Two Months
+name: Create Backup Table
 
 on:
   schedule:    
