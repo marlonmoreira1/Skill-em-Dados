@@ -1,4 +1,4 @@
-name: Run Script Every Two Months
+name: Run Backup Script
 
 on:
   schedule:    
