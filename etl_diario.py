@@ -70,10 +70,10 @@ chips = {
 }
 
 q = {
-    "analista de dados": 'análise de dados',
-    "analista de bi": 'análise de dados',
-    "cientista de dados": 'ciência de dados',
-    "engenheiro de dados": 'ciência de dados'
+    "analista de dados": 'dados',
+    "analista de bi": 'dados',
+    "cientista de dados": 'dados',
+    "engenheiro de dados": 'dados'
 }
 
 
