@@ -54,11 +54,11 @@ def get_dados(params):
     return pd.DataFrame(google_jobs_results)
       
 
-cargos = ["Analista de Dados", "Analista de Inteligência de Negocios", "Cientista de Dados", "Engenheiro de Dados"]
+cargos = ["Analista de Dados", "Analista de BI", "Cientista de Dados", "Engenheiro de Dados"]
 
 api_keys = {
     "Analista de Dados": analista_dados_key_api,
-    "Analista de Inteligência de Negocios": analista_bi_key_api,
+    "Analista de BI": analista_bi_key_api,
     "Cientista de Dados": cientista_dados_key_api,
     "Engenheiro de Dados": engenheiro_dados_key_api
 }
