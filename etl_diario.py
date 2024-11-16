@@ -32,17 +32,17 @@ params = {
 def get_dados(params):    
 
     numero_de_paginas = 0
+    google_jobs_results = []  
 
     while True:
 
         search = GoogleSearch(params)
         result_dict = search.get_dict()
         
-        if 'jobs_results' not in result_dict:
-            break
+        if 'jobs_results' not in result_dict:            
             return pd.DataFrame()
             
-        google_jobs_results = [result for result in result_dict['jobs_results']]              
+        google_jobs_results.extend(result_dict['jobs_results'])              
 
         if numero_de_paginas >= 30 or 'serpapi_pagination' not in result_dict:
             break
