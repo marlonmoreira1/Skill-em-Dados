@@ -25,7 +25,7 @@ params = {
       "hl": "pt-br",
       "location": "Brazil",
       "date_posted": "today",
-      "chips": "date_posted:today"
+      "chips": "date_posted:today",
       "output": "JSON"  
     }
 
