@@ -24,8 +24,7 @@ params = {
       "gl": "br",
       "hl": "pt-br",
       "location": "Brazil",
-      "date_posted": "today",
-      "chips": "date_posted:today",
+      "date_posted": "today",      
       "output": "JSON"  
     }
 
@@ -54,20 +53,36 @@ def get_dados(params):
     return pd.DataFrame(google_jobs_results)
       
 
-cargos = ["Analista de Dados", "Analista de BI", "Cientista de Dados", "Engenheiro de Dados"]
+cargos = ["analista de dados", "analista de bi", "cientista de dados", "engenheiro de dados"]
 
 api_keys = {
-    "Analista de Dados": analista_dados_key_api,
-    "Analista de BI": analista_bi_key_api,
-    "Cientista de Dados": cientista_dados_key_api,
-    "Engenheiro de Dados": engenheiro_dados_key_api
+    "analista de dados": analista_dados_key_api,
+    "analista de bi": analista_bi_key_api,
+    "cientista de dados": cientista_dados_key_api,
+    "engenheiro de dados": engenheiro_dados_key_api
+}
+
+chips = {
+    "analista de dados": "date_posted:today,job_family_1:analista de dados",
+    "analista de bi": "date_posted:today,job_family_1:analista de bi",
+    "cientista de dados": "date_posted:today,job_family_1:cientista de dados",
+    "engenheiro de dados": "date_posted:today,job_family_1:engenheiro de dados"    
+}
+
+q = {
+    "analista de dados": 'análise de dados',
+    "analista de bi": 'análise de dados',
+    "cientista de dados": 'ciência de dados',
+    "engenheiro de dados": 'ciência de dados'
 }
 
 dataframes = []
 
 for cargo in cargos:    
-  params['q'] = cargo
-  params['api_key'] = api_keys[cargo]  
+  params['q'] = q
+  params['api_key'] = api_keys[cargo]
+  params['chips'] = chips[cargo]
+
   df = get_dados(params)        
   
   df['cargo'] = cargo
