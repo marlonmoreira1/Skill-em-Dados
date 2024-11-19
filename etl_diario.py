@@ -79,7 +79,7 @@ q = {
 dataframes = []
 
 for cargo in cargos:    
-  params['q'] = q
+  params['q'] = q[cargo]
   params['api_key'] = api_keys[cargo]
   params['chips'] = chips[cargo]
 
