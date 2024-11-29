@@ -24,7 +24,8 @@ params = {
       "gl": "br",
       "hl": "pt-br",
       "location": "Brazil",
-      "date_posted": "today",      
+      "date_posted": "today",
+      "chips": "date_posted:today",
       "output": "JSON"  
     }
 
@@ -62,26 +63,12 @@ api_keys = {
     "engenheiro de dados": engenheiro_dados_key_api
 }
 
-chips = {
-    "analista de dados": "date_posted:today,job_family_1:analista de dados",
-    "analista de bi": "date_posted:today,job_family_1:analista de bi",
-    "cientista de dados": "date_posted:today,job_family_1:cientista de dados",
-    "engenheiro de dados": "date_posted:today,job_family_1:engenheiro de dados"    
-}
-
-q = {
-    "analista de dados": 'análise de dados',
-    "analista de bi": 'análise de dados',
-    "cientista de dados": 'ciência de dados',
-    "engenheiro de dados": 'ciência de dados'
-}
 
 dataframes = []
 
 for cargo in cargos:    
-  params['q'] = q[cargo]
-  params['api_key'] = api_keys[cargo]
-  params['chips'] = chips[cargo]
+  params['q'] = cargo
+  params['api_key'] = api_keys[cargo]  
 
   df = get_dados(params)        
   
