@@ -24,6 +24,7 @@ params = {
       "google_domain": "google.com.br",
       "gl": "br",
       "hl": "pt-br", 
+      "chips": "date_posted:today",
       "output": "JSON"  
     }
 
