@@ -23,8 +23,7 @@ params = {
       "location":"Brazil",      
       "google_domain": "google.com.br",
       "gl": "br",
-      "hl": "pt-br",      
-      "date_posted":"today",
+      "hl": "pt-br", 
       "output": "JSON"  
     }
 
