@@ -22,8 +22,8 @@ params = {
       "engine": "google_jobs",
       "location":"Brazil",      
       "google_domain": "google.com",
-      "gl": "br",
-      "hl": "pt-br", 
+      "hl": "en",
+      "gl": "us", 
       "chips": "date_posted:today",
       "output": "JSON"  
     }
