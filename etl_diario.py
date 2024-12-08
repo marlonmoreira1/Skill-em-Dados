@@ -41,7 +41,7 @@ def get_dados(params):
             
         google_jobs_results.extend(result_dict['jobs_results'])              
 
-        if numero_de_paginas >= 30 or 'serpapi_pagination' not in result_dict:
+        if numero_de_paginas >= 10 or 'serpapi_pagination' not in result_dict:
             break
         else:
             params['next_page_token'] = result_dict['serpapi_pagination']['next_page_token']
