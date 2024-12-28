@@ -75,7 +75,7 @@ for cargo in cargos:
 
 jobs = pd.concat(dataframes, ignore_index=True)
 
-jobs['posted_at'] = jobs['detected_extensions'].apply(lambda x: x.get('posted_at') if isinstance(x, dict) else None)
+jobs['posted_at'] = jobs['extensions'].apply(lambda x: x[0] if isinstance(x, list) and len(x) > 0 else None)
 
 def make_data(linha):
     match = re.search(r"há (\d+) dias?", linha)
