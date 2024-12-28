@@ -399,7 +399,7 @@ credentials_json = os.environ["GOOGLE_CREDENTIALS"]
 credentials_info = json.loads(credentials_json)
 
 
-client = bigquery.Client(credentials=service_account.Credentials.from_service_account_info(json_data), project=json_data['project_id'])
+client = bigquery.Client(credentials=credentials, project=credentials_info['project_id'])
 
 # TODO(developer): Set table_id to the ID of the table to create.
 table_id = "dadossobredados.vagas_dados.vagasdados"
