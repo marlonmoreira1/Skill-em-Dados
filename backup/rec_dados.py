@@ -26,7 +26,7 @@ params = {
       "output": "JSON"  
     }
 
-def get_dados(query,api_key,limite):    
+def get_dados(query):    
 
     numero_de_paginas = 0
     google_jobs_results = []
