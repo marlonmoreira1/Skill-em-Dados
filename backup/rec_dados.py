@@ -394,10 +394,13 @@ dataframe = jobs[['company_name', 'via', 'job_id', 'unique_key', 'date', 'xp', '
        'hard_skills', 'complemento', 'soft_skills', 'graduacoes',
        'metodologia_trabalho', 'tipo_contrato', 'cargo']]
 
+dataframe['date'] = dataframe['date'].astype(str)
+
 credentials_json = os.environ["GOOGLE_CREDENTIALS"]
 
 credentials_info = json.loads(credentials_json)
 
+credentials = service_account.Credentials.from_service_account_info(credentials_info)
 
 client = bigquery.Client(credentials=credentials, project=credentials_info['project_id'])
 
