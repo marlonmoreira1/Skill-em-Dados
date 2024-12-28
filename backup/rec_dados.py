@@ -3,6 +3,7 @@ from google.cloud import bigquery
 from google.oauth2 import service_account
 import json
 import pandas as pd
+import os
 import numpy as np
 import re
 import ast
