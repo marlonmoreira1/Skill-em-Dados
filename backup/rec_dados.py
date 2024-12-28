@@ -10,6 +10,9 @@ import ast
 import uuid
 from datetime import datetime
 
+start_date = datetime(2024, 11, 30).date()
+end_date = datetime(2024, 12, 27).date()
+
 analista_dados_key_api = os.environ["ANALISTA_DADOS_KEY_API"]
 analista_bi_key_api = os.environ["ANALISTA_BI_KEY_API"]
 cientista_dados_key_api = os.environ["CIENTISTA_DADOS_KEY_API"]
@@ -22,9 +25,6 @@ params = {
       "chips": {"date_posted": {"from": start_date, "to": end_date}},
       "output": "JSON"  
     }
-
-start_date = datetime(2024, 11, 30).date()
-end_date = datetime(2024, 12, 27).date()
 
 def get_dados(query,api_key,limite):    
 
