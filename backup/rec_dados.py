@@ -15,20 +15,18 @@ analista_bi_key_api = os.environ["ANALISTA_BI_KEY_API"]
 cientista_dados_key_api = os.environ["CIENTISTA_DADOS_KEY_API"]
 engenheiro_dados_key_api = os.environ["ENGENHEIRO_DADOS_KEY_API"]
 
-start_date = datetime(2024, 11, 30).date()
-end_date = datetime(2024, 12, 27).date()
-
-def get_dados(query,api_key,limite):
-
-    params = {
+params = {
       "engine": "google_jobs",
       "location":"Brazil",      
       "google_domain": "google.com",      
       "chips": {"date_posted": {"from": start_date, "to": end_date}},
       "output": "JSON"  
     }
-    
-    
+
+start_date = datetime(2024, 11, 30).date()
+end_date = datetime(2024, 12, 27).date()
+
+def get_dados(query,api_key,limite):    
 
     numero_de_paginas = 0
     google_jobs_results = []
