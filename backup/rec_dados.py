@@ -390,7 +390,7 @@ jobs['graduacoes'] = jobs['graduacoes'].apply(lambda x: ','.join(x))
 jobs['metodologia_trabalho'] = jobs['metodologia_trabalho'].apply(lambda x: ','.join(x))
 jobs['tipo_contrato'] = jobs['tipo_contrato'].apply(lambda x: ','.join(x))
 
-dataframe = jobs[['company_name', 'via', 'job_id', 'unique_key', 'date', 'xp', 'new_title', 'estado', 'cidade', 'is_remote',
+dataframe = jobs[['company_name', 'via', 'job_id', 'unique_key', 'date', 'xp', 'new_title', 'estado', 'cidade',
        'hard_skills', 'complemento', 'soft_skills', 'graduacoes',
        'metodologia_trabalho', 'tipo_contrato', 'cargo']]
 
@@ -417,7 +417,6 @@ job_config = bigquery.LoadJobConfig(
     bigquery.SchemaField("new_title", "STRING", mode="NULLABLE"),
     bigquery.SchemaField("cidade", "STRING", mode="NULLABLE"),
     bigquery.SchemaField("estado", "STRING", mode="NULLABLE"),
-    bigquery.SchemaField("is_remote", "BOOLEAN", mode="NULLABLE"),
     bigquery.SchemaField("hard_skills", "STRING", mode="NULLABLE"),
     bigquery.SchemaField("complemento", "STRING", mode="NULLABLE"),
     bigquery.SchemaField("soft_skills", "STRING", mode="NULLABLE"),
