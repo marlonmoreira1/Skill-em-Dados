@@ -22,7 +22,7 @@ params = {
       "engine": "google_jobs",
       "location":"Brazil",      
       "google_domain": "google.com",      
-      "chips": {"date_posted": {"from": start_date, "to": end_date}},
+      "chips": "date_posted":month,
       "output": "JSON"  
     }
 
