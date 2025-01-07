@@ -52,7 +52,7 @@ while attempt < max_retries and not connected:
         time.sleep(10)
 
 cursor = conn.cursor()
-dataframe = dataframe.fillna('')
+#dataframe = dataframe.fillna('')
 
 insert_stmt = '''
 INSERT INTO [dbo].[VagasDados] (
