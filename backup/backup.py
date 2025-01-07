@@ -19,75 +19,49 @@ def consultar_dados_bigquery(consulta):
     return df
 
 
-dataframe = consultar_dados_bigquery("""
-    WITH OrderedJobs AS (
-    SELECT        
-*,
-        ROW_NUMBER() OVER (PARTITION BY company_name,
-via,
-job_id,
-xp,
-new_title,
-cargo,
-estado,
-cidade,
-is_remote ORDER BY date ASC) AS rn
+dataframe = consultar_dados_bigquery("""    
+    SELECT
+    *
     FROM
 `dadossobredados.vagas_dados.vagasdados`
-)
-SELECT 
-company_name,
-via,
-job_id,
-unique_key,
-date,
-xp,
-new_title,
-estado,
-cidade,
-is_remote,
-hard_skills,
-complemento,
-soft_skills,
-graduacoes,
-metodologia_trabalho,
-tipo_contrato,
-cargo
-FROM 
-    OrderedJobs
-WHERE 
-    rn = 1;
     """)
 
 
-table_id = os.environ["BACKUP_TABLE_ID"]
-
-job_config = bigquery.LoadJobConfig(
-    
-    
-    schema = [
-    bigquery.SchemaField("job_id", "STRING", mode="NULLABLE"),
-    bigquery.SchemaField("unique_key", "STRING", mode="NULLABLE"),
-    bigquery.SchemaField("date", "STRING", mode="NULLABLE"),
-    bigquery.SchemaField("company_name", "STRING", mode="NULLABLE"),
-    bigquery.SchemaField("via", "STRING", mode="NULLABLE"),
-    bigquery.SchemaField("xp", "STRING", mode="NULLABLE"),
-    bigquery.SchemaField("new_title", "STRING", mode="NULLABLE"),
-    bigquery.SchemaField("cidade", "STRING", mode="NULLABLE"),
-    bigquery.SchemaField("estado", "STRING", mode="NULLABLE"),
-    bigquery.SchemaField("is_remote", "BOOLEAN", mode="NULLABLE"),
-    bigquery.SchemaField("hard_skills", "STRING", mode="NULLABLE"),
-    bigquery.SchemaField("complemento", "STRING", mode="NULLABLE"),
-    bigquery.SchemaField("soft_skills", "STRING", mode="NULLABLE"),
-    bigquery.SchemaField("graduacoes", "STRING", mode="NULLABLE"),
-    bigquery.SchemaField("metodologia_trabalho", "STRING", mode="NULLABLE"),
-    bigquery.SchemaField("tipo_contrato", "STRING", mode="NULLABLE"),
-    bigquery.SchemaField("cargo", "STRING", mode="NULLABLE")
-],
-    
-    write_disposition="WRITE_APPEND"
+credentials = (
+    'Driver={ODBC Driver 17 for SQL Server};'
+    f'Server={os.environ["AZURE_SQL_SERVER"]};'
+    f'Database={os.environ["AZURE_SQL_DATABASE"]};'
+    f'Uid={os.environ["AZURE_SQL_USER"]};'
+    f'pwd={os.environ["AZURE_SQL_PASSWORD"]}'
 )
 
-job = client.load_table_from_dataframe(
-    dataframe, table_id, job_config=job_config
-)
+max_retries = 3
+attempt = 0
+connected = False
+
+while attempt < max_retries and not connected:
+    try:
+        conn = pyodbc.connect(credentials, timeout=20)        
+        connected = True
+    except pyodbc.Error as e:
+        print(f"Connection attempt {attempt + 1} failed: {e}")
+        attempt += 1
+        time.sleep(10)
+
+cursor = conn.cursor()
+dataframe = dataframe.fillna('')
+
+insert_stmt = '''
+INSERT INTO [dbo].[VagasDados] (
+    job_id, unique_key, date, company_name, via, xp, new_title, cidade, estado,
+    hard_skills, complemento, soft_skills, graduacoes, metodologia_trabalho,
+    tipo_contrato, cargo
+) 
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+'''
+
+cursor.executemany(insert_stmt, dataframe.values.tolist())
+print(f'{len(dataframe)} linhas inseridas na tabela data_jobs')           
+cursor.commit()        
+cursor.close()
+conn.close()
