@@ -39,37 +39,37 @@ credentials = (
     f'pwd={os.environ["AZURE_SQL_PASSWORD"]}'
 )
 
-max_retries = 3
-attempt = 0
-connected = False
+# max_retries = 3
+# attempt = 0
+# connected = False
 
-while attempt < max_retries and not connected:
-    try:
-        conn = pyodbc.connect(credentials, timeout=20)        
-        connected = True
-    except pyodbc.Error as e:
-        print(f"Connection attempt {attempt + 1} failed: {e}")
-        attempt += 1
-        time.sleep(10)
+# while attempt < max_retries and not connected:
+#     try:
+#         conn = pyodbc.connect(credentials, timeout=20)        
+#         connected = True
+#     except pyodbc.Error as e:
+#         print(f"Connection attempt {attempt + 1} failed: {e}")
+#         attempt += 1
+#         time.sleep(10)
 
-cursor = conn.cursor()
-dataframe = dataframe.fillna(value=np.nan)
+# cursor = conn.cursor()
+#dataframe = dataframe.fillna(value=np.nan)
 
 dataframe = dataframe[['job_id', 'unique_key', 'date', 'company_name', 'via', 'xp', 'new_title', 'cidade', 'estado', 
            'hard_skills', 'complemento', 'soft_skills', 'graduacoes', 'metodologia_trabalho', 
            'tipo_contrato', 'cargo']]
+print(dataframe)
+# insert_stmt = '''
+# INSERT INTO [dbo].[VagasDados] (
+#     job_id, unique_key, date, company_name, via, xp, new_title, cidade, estado,
+#     hard_skills, complemento, soft_skills, graduacoes, metodologia_trabalho,
+#     tipo_contrato, cargo
+# ) 
+# VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+# '''
 
-insert_stmt = '''
-INSERT INTO [dbo].[VagasDados] (
-    job_id, unique_key, date, company_name, via, xp, new_title, cidade, estado,
-    hard_skills, complemento, soft_skills, graduacoes, metodologia_trabalho,
-    tipo_contrato, cargo
-) 
-VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-'''
-
-cursor.executemany(insert_stmt, dataframe.values.tolist())
-print(f'{len(dataframe)} linhas inseridas na tabela data_jobs')           
-cursor.commit()        
-cursor.close()
-conn.close()
+# cursor.executemany(insert_stmt, dataframe.values.tolist())
+# print(f'{len(dataframe)} linhas inseridas na tabela data_jobs')           
+# cursor.commit()        
+# cursor.close()
+# conn.close()
