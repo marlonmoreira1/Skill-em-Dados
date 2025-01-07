@@ -3,6 +3,7 @@ from google.oauth2 import service_account
 from datetime import datetime, timedelta
 import time
 import os
+import numpy as np
 import pandas as pd
 import pyodbc
 import json
@@ -52,7 +53,7 @@ while attempt < max_retries and not connected:
         time.sleep(10)
 
 cursor = conn.cursor()
-dataframe = dataframe.fillna(value=None)
+dataframe = dataframe.fillna(value=np.nan)
 
 dataframe = dataframe[['job_id', 'unique_key', 'date', 'company_name', 'via', 'xp', 'new_title', 'cidade', 'estado', 
            'hard_skills', 'complemento', 'soft_skills', 'graduacoes', 'metodologia_trabalho', 
