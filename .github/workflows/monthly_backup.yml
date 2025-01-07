@@ -23,7 +23,28 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.8'
+        python-version: '3.9'
+
+    - name: Install ODBC Driver and Dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y curl apt-transport-https unixodbc-dev
+        curl -s https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+        curl -s https://packages.microsoft.com/config/ubuntu/20.04/prod.list | sudo tee /etc/apt/sources.list.d/mssql-release.list
+        sudo apt-get update
+        sudo ACCEPT_EULA=Y apt-get install -y msodbcsql17
+
+    - name: Validate ODBC Driver
+      run: odbcinst -j
+
+    - name: Install Python Dependencies
+      run: pip install pyodbc
+
+    - name: Configure odbcinst.ini
+      run: |
+        echo "[ODBC Driver 17 for SQL Server]" | sudo tee -a /etc/odbcinst.ini
+        echo "Description=Microsoft ODBC Driver 17 for SQL Server" | sudo tee -a /etc/odbcinst.ini
+        echo "Driver=/opt/microsoft/msodbcsql17/lib64/libmsodbcsql-17.*.so" | sudo tee -a /etc/odbcinst.ini
 
     - name: Install dependencies
       run: |
