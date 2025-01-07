@@ -55,16 +55,16 @@ cursor = conn.cursor()
 #dataframe = dataframe.fillna('')
 
 dataframe = dataframe[['job_id', 'unique_key', 'date', 'company_name', 'via', 'xp', 'new_title', 'cidade', 'estado', 
-           'is_remote', 'hard_skills', 'complemento', 'soft_skills', 'graduacoes', 'metodologia_trabalho', 
+           'hard_skills', 'complemento', 'soft_skills', 'graduacoes', 'metodologia_trabalho', 
            'tipo_contrato', 'cargo']]
 
 insert_stmt = '''
 INSERT INTO [dbo].[VagasDados] (
     job_id, unique_key, date, company_name, via, xp, new_title, cidade, estado,
-    is_remote, hard_skills, complemento, soft_skills, graduacoes, metodologia_trabalho,
+    hard_skills, complemento, soft_skills, graduacoes, metodologia_trabalho,
     tipo_contrato, cargo
 ) 
-VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
 '''
 
 cursor.executemany(insert_stmt, dataframe.values.tolist())
