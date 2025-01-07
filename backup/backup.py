@@ -64,7 +64,7 @@ INSERT INTO [dbo].[VagasDados] (
     is_remote, hard_skills, complemento, soft_skills, graduacoes, metodologia_trabalho,
     tipo_contrato, cargo
 ) 
-VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
 '''
 
 cursor.executemany(insert_stmt, dataframe.values.tolist())
