@@ -53,12 +53,13 @@ while attempt < max_retries and not connected:
         time.sleep(10)
 
 cursor = conn.cursor()
-dataframe = dataframe.fillna(value='')
 
 dataframe = dataframe[['job_id', 'unique_key', 'date', 'company_name', 'via', 'xp', 'new_title', 'cidade', 'estado', 
            'hard_skills', 'complemento', 'soft_skills', 'graduacoes', 'metodologia_trabalho', 
            'tipo_contrato', 'cargo']]
-print(dataframe[['hard_skills', 'complemento', 'soft_skills', 'graduacoes']])
+
+dataframe = dataframe.fillna(value='')
+
 insert_stmt = '''
 INSERT INTO [dbo].[VagasDados] (
     job_id, unique_key, date, company_name, via, xp, new_title, cidade, estado,
