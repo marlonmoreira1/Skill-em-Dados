@@ -52,7 +52,7 @@ while attempt < max_retries and not connected:
         time.sleep(10)
 
 cursor = conn.cursor()
-#dataframe = dataframe.fillna('')
+dataframe = dataframe.fillna(None)
 
 dataframe = dataframe[['job_id', 'unique_key', 'date', 'company_name', 'via', 'xp', 'new_title', 'cidade', 'estado', 
            'hard_skills', 'complemento', 'soft_skills', 'graduacoes', 'metodologia_trabalho', 
