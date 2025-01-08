@@ -29,7 +29,7 @@ dataframe = consultar_dados_bigquery("""
     FROM
 `dadossobredados.vagas_dados.vagasdados`
 WHERE
-date = DATE_SUB(CURRENT_DATE(), INTERVAL 1 DAY)
+PARSE_DATE('%Y-%m-%d', date) = DATE_SUB(CURRENT_DATE(), INTERVAL 1 DAY)
     """)
 
 
