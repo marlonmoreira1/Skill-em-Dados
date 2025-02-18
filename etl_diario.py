@@ -21,9 +21,9 @@ engenheiro_dados_key_api = os.environ["ENGENHEIRO_DADOS_KEY_API"]
 params = {
       "engine": "google_jobs",
       "location":"Brazil",
-      "google_domain": "google.com",      
-      "chips": "date_posted:today",            
+      "google_domain": "google.com",
       "hl": "pt-br",
+      "chips": "date_posted:today",      
       "output": "JSON"  
     }
 
