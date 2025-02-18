@@ -87,6 +87,18 @@ jobs = jobs.drop_duplicates(subset=['title','company_name','description']).reset
 
 jobs = jobs.astype(str)
 
+filtro = jobs['via'].str.contains('gupy', case=False, na=False) | jobs['via'].isin([
+    '99jobs.com',
+    'LinkedIn',
+    'Indeed',
+    'Catho',
+    'Infojobs',
+    'Glassdoor',
+    'Robert Half'
+])
+
+jobs_filtrado = jobs[filtro]
+
 elementos_filtrados = xps()
 profissoes = titulos()
 hard_skills = ferra()
