@@ -97,7 +97,7 @@ filtro = jobs['via'].str.contains('gupy', case=False, na=False) | jobs['via'].is
     'Robert Half'
 ])
 
-jobs_filtrado = jobs[filtro]
+jobs = jobs[filtro]
 
 elementos_filtrados = xps()
 profissoes = titulos()
