@@ -21,8 +21,8 @@ engenheiro_dados_key_api = os.environ["ENGENHEIRO_DADOS_KEY_API"]
 params = {
       "engine": "google_jobs",
       "location":"Brazil",
-      "google_domain": "google.com",
-      "hl": "pt-br",
+      "google_domain": "google.com.br",
+      "hl": "pt",
       "chips": "date_posted:today",      
       "output": "JSON"  
     }
@@ -52,7 +52,7 @@ def get_dados(params):
     return pd.DataFrame(google_jobs_results)
       
 
-cargos = ["analista de dados", "analista de bi", "cientista de dados", "engenheiro de dados"]
+cargos = ["Analista de Dados", "Analista de BI", "Cientista de Dados", "Engenheiro de Dados"]
 
 api_keys = {
     "analista de dados": analista_dados_key_api,
