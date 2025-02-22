@@ -55,10 +55,10 @@ def get_dados(params):
 cargos = ["Analista de Dados", "Analista de BI", "Cientista de Dados", "Engenheiro de Dados"]
 
 api_keys = {
-    "analista de dados": analista_dados_key_api,
-    "analista de bi": analista_bi_key_api,
-    "cientista de dados": cientista_dados_key_api,
-    "engenheiro de dados": engenheiro_dados_key_api
+    "Analista de Dados": analista_dados_key_api,
+    "Analista de BI": analista_bi_key_api,
+    "Cientista de Dados": cientista_dados_key_api,
+    "Engenheiro de Dados": engenheiro_dados_key_api
 }
 
 dataframes = []
