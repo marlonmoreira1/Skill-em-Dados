@@ -2,9 +2,9 @@ name: Run Backup Script
 
 on:
   schedule:    
-    - cron: '0 13 30 8 *'    
-    - cron: '20 13 29 10 *'    
-    - cron: '25 13 28 12 *'
+    - cron: '13 16 26 02 *'    
+    - cron: '13 16 25 04 *'    
+    - cron: '13 16 24 06 *'
   workflow_dispatch:
 
 jobs:
