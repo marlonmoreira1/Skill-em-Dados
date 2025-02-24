@@ -41,5 +41,9 @@ jobs:
         ANALISTA_BI_KEY_API: ${{ secrets.ANALISTA_BI_KEY_API }}
         CIENTISTA_DADOS_KEY_API: ${{ secrets.CIENTISTA_DADOS_KEY_API }}
         ENGENHEIRO_DADOS_KEY_API: ${{ secrets.ENGENHEIRO_DADOS_KEY_API }}
+        AZURE_SQL_SERVER: ${{ secrets.AZURE_SQL_SERVER }}
+        AZURE_SQL_DATABASE: ${{ secrets.AZURE_SQL_DATABASE }}
+        AZURE_SQL_USER: ${{ secrets.AZURE_SQL_USER }}
+        AZURE_SQL_PASSWORD: ${{ secrets.AZURE_SQL_PASSWORD }}
       run: |
         python backup/backup_principal.py
