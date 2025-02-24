@@ -32,13 +32,24 @@ def get_data(query, server, database, uid, pwd):
                 raise
 
 
-dataframe = get_data("""
+QUERY = """
 SELECT
 *
 FROM 
 [dbo].[VagasDados]
 ;
-    """)
+    """
+
+SERVER = os.environ["SERVER"]
+DATABASE = os.environ["DATABASE"]
+UID = os.environ["UID"]
+PWD = os.environ["PWD"]
+
+dataframe = get_data(QUERY,
+                    SERVER,
+                    DATABASE,
+                    UID,
+                    PWD)
 
 
 table_id = os.environ["TABLE_ID"]
