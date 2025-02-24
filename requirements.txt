@@ -7,3 +7,7 @@ google-cloud-bigquery
 db-dtypes
 google-search-results
 pyodbc
+sqlalchemy
+pymssql
+datetime
+requests
