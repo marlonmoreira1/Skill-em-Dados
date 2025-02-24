@@ -1,30 +1,42 @@
 
 from google.cloud import bigquery
 from google.oauth2 import service_account
-import os
-import pandas as pd
+from sqlalchemy import create_engine, event
+from sqlalchemy.exc import OperationalError
+import urllib.parse
 import json
-
-credentials_json = os.environ["GOOGLE_CREDENTIALS"]
-
-credentials_info = json.loads(credentials_json)
-
-credentials = service_account.Credentials.from_service_account_info(credentials_info)
-
-client = bigquery.Client(credentials=credentials, project=credentials_info['project_id'])
-
-def consultar_dados_bigquery(consulta):
-    query = consulta
-    df = client.query(query).to_dataframe()
-    df = df.replace('', pd.NA)
-    return df
+import pymssql
+import pandas as pd
+import requests
+import time
 
 
-dataframe = consultar_dados_bigquery("""
+
+def get_data(query, server, database, uid, pwd):    
+    connection_string = f"mssql+pymssql://{uid}:{pwd}@{server}/{database}"     
+    for attempt in range(1, 7):
+        try:
+            engine = create_engine(connection_string) 
+            with engine.connect() as connection:
+                df = pd.read_sql(query, connection)                        
+            return df  
+
+        except OperationalError as e:
+            print(f"Tentativa {attempt}/7 falhou. Erro: {e}")
+            
+            if attempt < 6:
+                print(f"Aguardando 10 segundos antes de tentar novamente...")
+                time.sleep(10)
+            else:
+                print("Máximo de tentativas atingido. Falha ao conectar ao banco de dados.")
+                raise
+
+
+dataframe = get_data("""
 SELECT
 *
 FROM 
-`dadossobredados.vagas_dados.backup_dados` 
+[dbo].[VagasDados]
 ;
     """)
 
