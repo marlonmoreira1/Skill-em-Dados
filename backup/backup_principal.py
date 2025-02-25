@@ -1,35 +1,32 @@
 
 from google.cloud import bigquery
 from google.oauth2 import service_account
-from sqlalchemy import create_engine, event
-from sqlalchemy.exc import OperationalError
-import urllib.parse
-import json
-import pymssql
-import pandas as pd
-import requests
+import os
 import time
+import pyodbc
 
 
 
-def get_data(query, server, database, uid, pwd):    
-    connection_string = f"mssql+pymssql://{uid}:{pwd}@{server}/{database}"     
-    for attempt in range(1, 7):
-        try:
-            engine = create_engine(connection_string) 
-            with engine.connect() as connection:
-                df = pd.read_sql(query, connection)                        
-            return df  
+credentials = (
+    'Driver={ODBC Driver 17 for SQL Server};'
+    f'Server={os.environ["AZURE_SQL_SERVER"]};'
+    f'Database={os.environ["AZURE_SQL_DATABASE"]};'
+    f'Uid={os.environ["AZURE_SQL_USER"]};'
+    f'pwd={os.environ["AZURE_SQL_PASSWORD"]}'
+)
 
-        except OperationalError as e:
-            print(f"Tentativa {attempt}/7 falhou. Erro: {e}")
-            
-            if attempt < 6:
-                print(f"Aguardando 10 segundos antes de tentar novamente...")
-                time.sleep(10)
-            else:
-                print("Máximo de tentativas atingido. Falha ao conectar ao banco de dados.")
-                raise
+max_retries = 3
+attempt = 0
+connected = False
+
+while attempt < max_retries and not connected:
+    try:
+        conn = pyodbc.connect(credentials, timeout=20)        
+        connected = True
+    except pyodbc.Error as e:
+        print(f"Connection attempt {attempt + 1} failed: {e}")
+        attempt += 1
+        time.sleep(10)
 
 
 QUERY = """
@@ -40,16 +37,10 @@ FROM
 ;
     """
 
-SERVER = os.environ["SERVER"]
-DATABASE = os.environ["DATABASE"]
-UID = os.environ["UID"]
-PWD = os.environ["PWD"]
+dataframe = pd.read_sql(QUERY, conn)
 
-dataframe = get_data(QUERY,
-                    SERVER,
-                    DATABASE,
-                    UID,
-                    PWD)
+    
+conn.close()
 
 
 table_id = os.environ["TABLE_ID"]
