@@ -151,23 +151,6 @@ jobs["estado"] = jobs["estado"].apply(lambda x: x.split(" - ")[-1] if " - " in x
 
 jobs = jobs.drop(columns=["location", "pais"])
 
-# Nova função para recuperar localidades que não estão na coluna location,
-# mas podem ser mencionadas no descrição das vagas.
-
-estados = list(jobs['state'].unique())
-
-def get_state(linha,estados):       
-    
-    if 'brasil' in linha['state'].lower() or 'lugar' in linha['state'].lower() or '(' in linha['state'].lower():        
-        
-        estado = [state.lower() for state in estados if state.lower() in linha['combined_columns'].lower()]
-        
-        return estado[0].upper() if estado else None
-    
-    return linha['state']
-
-jobs['estado'] = jobs.apply(get_state,axis=1,args=(estados,))
-
 estados_brasileiros = {
     'Acre': 'AC',
     'Alagoas': 'AL',
