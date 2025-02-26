@@ -145,33 +145,9 @@ def padronizar_profissao(linha):
 
 jobs['new_title'] = jobs['title'].apply(padronizar_profissao)
 
-def extrair_estado(linha):
-    if ',' in linha and not '-' in linha:
-        return linha.split()[-1]
-    if '-' in linha:
-        return linha.split()[-1]
-    if '-' in linha and ',' in linha:
-        return linha.split()[-1]
-    if '(' in linha:
-        return linha.split()[0]
-    else:
-        return linha.strip()        
-    
-    
-def extrair_cidade(linha):
-    if ',' in linha and not '-' in linha:
-        return linha.strip().split(',')[0]
-    if '-' in linha:
-        return linha.strip().split('-')[0]
-    if '-' in linha and ',' in linha:
-        return linha.strip().split(',')[0]
-    if '(' in linha:
-        return linha.strip().split()[0]
-    else:
-        return linha.strip()
+jobs[["cidade", "estado", "pais"]] = jobs["location"].str.split(", ", expand=True, n=2).fillna("")
 
-jobs['state'] = jobs['location'].apply(extrair_estado)
-jobs['cidade'] = jobs['location'].apply(extrair_cidade)
+jobs["estado"] = jobs["estado"].apply(lambda x: x.split(" - ")[-1] if " - " in x else x)
 
 # Nova função para recuperar localidades que não estão na coluna location,
 # mas podem ser mencionadas no descrição das vagas.
