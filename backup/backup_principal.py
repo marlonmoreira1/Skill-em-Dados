@@ -18,7 +18,7 @@ credentials = (
     f'pwd={os.environ["AZURE_SQL_PASSWORD"]}'
 )
 
-max_retries = 3
+max_retries = 5
 attempt = 0
 connected = False
 
