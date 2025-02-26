@@ -45,6 +45,13 @@ dataframe = pd.read_sql(QUERY, conn)
     
 conn.close()
 
+credentials_json = os.environ["GOOGLE_CREDENTIALS"]
+
+credentials_info = json.loads(credentials_json)
+
+credentials = service_account.Credentials.from_service_account_info(credentials_info)
+
+client = bigquery.Client(credentials=credentials, project=credentials_info['project_id'])
 
 table_id = os.environ["TABLE_ID"]
 
