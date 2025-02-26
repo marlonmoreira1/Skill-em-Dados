@@ -149,7 +149,7 @@ jobs[["cidade", "estado", "pais"]] = jobs["location"].str.split(", ", expand=Tru
 
 jobs["estado"] = jobs["estado"].apply(lambda x: x.split(" - ")[-1] if " - " in x else x)
 
-df = df.drop(columns=["location", "pais"])
+jobs = jobs.drop(columns=["location", "pais"])
 
 # Nova função para recuperar localidades que não estão na coluna location,
 # mas podem ser mencionadas no descrição das vagas.
