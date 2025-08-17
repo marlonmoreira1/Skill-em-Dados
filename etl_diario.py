@@ -18,14 +18,28 @@ analista_bi_key_api = os.environ["ANALISTA_BI_KEY_API"]
 cientista_dados_key_api = os.environ["CIENTISTA_DADOS_KEY_API"]
 engenheiro_dados_key_api = os.environ["ENGENHEIRO_DADOS_KEY_API"]
 
-params = {
-      "engine": "google_jobs",
-      "location":"Brazil",
-      "google_domain": "google.com.br",
-      "hl": "pt-br",
-      "chips": "date_posted:today",      
-      "output": "JSON"  
+def get_uds_token(cargo, api_key, filtro="Ontem"):
+    
+    params = {
+        "engine": "google_jobs",
+        "location": "Brazil",
+        "google_domain": "google.com.br",
+        "hl": "pt-br",
+        "q": cargo,
+        "api_key": api_key,
+        "output": "JSON"
     }
+
+    search = GoogleSearch(params)
+    result_dict = search.get_dict()
+
+    for filtro_secao in result_dict.get("filters", []):
+        if filtro_secao.get("name") == "Data de publicação":
+            for option in filtro_secao.get("options", []):
+                if option.get("name") == filtro:
+                    return option.get("parameters", {}).get("uds")
+    
+    return None
 
 def get_dados(params):    
 
@@ -63,17 +77,43 @@ api_keys = {
 
 dataframes = []
 
-for cargo in cargos:    
-  params['q'] = cargo
-  params['api_key'] = api_keys[cargo]  
+for cargo in cargos:
+    print(f"\nBuscando vagas para: {cargo}")
 
-  df = get_dados(params)        
-  
-  df['cargo'] = cargo
-          
-  dataframes.append(df)
+    
+    uds_token = get_uds_token(cargo, api_keys[cargo], filtro="Ontem")
 
-jobs = pd.concat(dataframes, ignore_index=True)
+    if uds_token:
+        params = {
+            "engine": "google_jobs",
+            "location": "Brazil",
+            "google_domain": "google.com.br",
+            "hl": "pt-br",
+            "q": cargo,
+            "uds": uds_token,
+            "api_key": api_keys[cargo],
+            "output": "JSON"
+        }
+
+        df = get_dados(params)
+
+        if not df.empty:
+            df["cargo"] = cargo
+            dataframes.append(df)
+            print(f"Total de vagas encontradas: {len(df)}")
+        else:
+            print("Nenhuma vaga encontrada com esse filtro.")
+    else:
+        print("Não foi possível encontrar o token 'uds' para esse filtro.")
+
+
+if dataframes:
+    jobs = pd.concat(dataframes, ignore_index=True)
+    print("\nColeta concluída!")
+    print(f"Total geral: {len(jobs)}")
+    print(jobs.head())
+else:
+    print("\nNenhum dado foi coletado.")
 
 data = datetime.today() - timedelta(days=1)
 
@@ -256,3 +296,4 @@ print(
         table.num_rows, len(table.schema), table_id
     )
 )
+
