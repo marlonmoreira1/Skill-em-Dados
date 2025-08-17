@@ -110,8 +110,7 @@ for cargo in cargos:
 if dataframes:
     jobs = pd.concat(dataframes, ignore_index=True)
     print("\nColeta concluída!")
-    print(f"Total geral: {len(jobs)}")
-    print(jobs.head())
+    print(f"Total geral: {len(jobs)}")    
 else:
     print("\nNenhum dado foi coletado.")
 
@@ -296,4 +295,5 @@ print(
         table.num_rows, len(table.schema), table_id
     )
 )
+
 
