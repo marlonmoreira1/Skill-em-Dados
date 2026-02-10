@@ -81,32 +81,50 @@ for cargo in cargos:
     print(f"\nBuscando vagas para: {cargo}")
 
     
-    uds_token = get_uds_token(cargo, api_keys[cargo], filtro="Nos últimos 3 dias")
+    # uds_token = get_uds_token(cargo, api_keys[cargo], filtro="Nos últimos 3 dias")
 
-    if uds_token:
-        params = {
-            "engine": "google_jobs",
-            "location": "Brazil",
-            "google_domain": "google.com.br",
-            "hl": "pt-br",
-            "q": cargo,
-            "uds": uds_token,
-            "api_key": api_keys[cargo],
-            "output": "JSON"
-        }
+    # if uds_token:
+        # params = {
+            # "engine": "google_jobs",
+            # "location": "Brazil",
+            # "google_domain": "google.com.br",
+            # "hl": "pt-br",
+            # "q": cargo,
+            # "uds": uds_token,
+            # "api_key": api_keys[cargo],
+            # "output": "JSON"
+       # }
 
-        df = get_dados(params)
+        # df = get_dados(params)
 
-        if not df.empty:
-            df["cargo"] = cargo
-            dataframes.append(df)
-            print(f"Total de vagas encontradas: {len(df)}")
-        else:
-            print("Nenhuma vaga encontrada com esse filtro.")
+        # if not df.empty:
+            # df["cargo"] = cargo
+            # dataframes.append(df)
+            # print(f"Total de vagas encontradas: {len(df)}")
+        # else:
+            # print("Nenhuma vaga encontrada com esse filtro.")
+   # else:
+        # print("Não foi possível encontrar o token 'uds' para esse filtro.")
+
+    params = {
+                "engine": "google_jobs",
+                "location": "Brazil",
+                "google_domain": "google.com.br",
+                "hl": "pt-br",
+                "q": cargo,            
+                "api_key": api_keys[cargo],
+                "output": "JSON"
+           }
+    
+    df = get_dados(params)
+
+    if not df.empty:
+        df["cargo"] = cargo
+        dataframes.append(df)
+        print(f"Total de vagas encontradas: {len(df)}")
     else:
-        print("Não foi possível encontrar o token 'uds' para esse filtro.")
-
-
+        print("Nenhuma vaga encontrada com esse filtro.")
+        
 if dataframes:
     jobs = pd.concat(dataframes, ignore_index=True)
     print("\nColeta concluída!")
@@ -295,6 +313,7 @@ print(
         table.num_rows, len(table.schema), table_id
     )
 )
+
 
 
 
