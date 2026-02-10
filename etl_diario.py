@@ -81,7 +81,7 @@ for cargo in cargos:
     print(f"\nBuscando vagas para: {cargo}")
 
     
-    uds_token = get_uds_token(cargo, api_keys[cargo], filtro="Ontem")
+    uds_token = get_uds_token(cargo, api_keys[cargo], filtro="Nos últimos 3 dias")
 
     if uds_token:
         params = {
@@ -295,6 +295,7 @@ print(
         table.num_rows, len(table.schema), table_id
     )
 )
+
 
 
 
