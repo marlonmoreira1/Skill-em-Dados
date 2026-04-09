@@ -103,7 +103,7 @@ for cargo in cargos:
             print(f"Total de vagas encontradas: {len(df)}")
         else:
             print("Nenhuma vaga encontrada com esse filtro.")
-   else:
+    else:       
         print("Não foi possível encontrar o token 'uds' para esse filtro.")   
         
 if dataframes:
@@ -294,9 +294,3 @@ print(
         table.num_rows, len(table.schema), table_id
     )
 )
-
-
-
-
-
-
