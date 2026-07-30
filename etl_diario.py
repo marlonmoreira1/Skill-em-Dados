@@ -89,8 +89,7 @@ for cargo in cargos:
         "location": "Brazil",
         "google_domain": "google.com.br",
         "hl": "pt-br",
-        "q": cargo,
-        "uds": uds_token,
+        "q": cargo,        
         "api_key": api_keys[cargo],
         "output": "JSON"
    }
