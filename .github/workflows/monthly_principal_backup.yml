@@ -1,12 +1,11 @@
 name: Run Backup Script
 
 on:
-  schedule:    
-    - cron: '13 16 27 04 *'    
-    - cron: '13 19 26 06 *'    
+  schedule:        
     - cron: '13 19 26 08 *'
+    - cron: '12 19 26 10 *'    
+    - cron: '11 19 26 12 *'    
   workflow_dispatch:
-
 jobs:
   run-etl:
     runs-on: ubuntu-latest
