@@ -2,6 +2,9 @@
 ## 1. Descrição
 #### Definição do Problema
 A ideia para este projeto surgiu da falta de direcionamento sobre o que estudar e quais habilidades desenvolver, por parte de muitos iniciantes na área de dados, incluindo colegas de faculdade e cursos. A volumosa quantidade de ferramentas e materiais didáticos disponíveis pode acabar gerando uma sobrecarga no aluno por não haver um caminho definido para seguir.
+
+[Artigo do Medium](https://medium.com/@marlonm.almeida/skill-em-dados-executando-um-projeto-de-an%C3%A1lise-de-dados-0a47b6626dcc)
+
 #### Objetivo do Projeto
 O objetivo deste projeto é contribuir com a formação de iniciantes que almejam entrar na área de dados, fornecendo uma visão baseada em dados sobre as habilidades e conhecimentos mais demandados pelo mercado. Através da coleta e análise de vagas de emprego/estágio, o projeto visa responder à pergunta: “Como se tornar um profissional de dados no Brasil?” Para isso, são identificados as ferramentas, tecnologias, soft skills, metodologias, formações acadêmicas e outros requisitos mais frequentemente requeridos nas vagas. Assim, criei um guia no formato de dashboard, no qual é possível visualizar, de modo ágil, as demandas do que estudar e se capacitar para ingressar no mercado de trabalho. Ao fornecer dados concretos e atualizados sobre as exigências mercadológicas, este projeto ajuda a reduzir a incerteza que muitos iniciantes enfrentam, oferecendo um caminho mais claro para o desenvolvimento de suas carreiras na área de dados.
 
@@ -82,5 +85,3 @@ Conheça os detalhes de cada etapa do projeto no artigo publicado no Medium:
 *	Construção do Dashboard
 *	Deploy e Automação da Atualização
 *	Insights e Uso do Aplicativo (Dashboard)
-
-[Artigo do Medium](https://medium.com/@marlonm.almeida/skill-em-dados-executando-um-projeto-de-an%C3%A1lise-de-dados-0a47b6626dcc)
