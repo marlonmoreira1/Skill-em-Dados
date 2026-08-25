@@ -2,9 +2,9 @@ name: Run Backup Script
 
 on:
   schedule:        
-    - cron: '13 19 26 08 *'
-    - cron: '12 19 26 10 *'    
-    - cron: '11 19 26 12 *'    
+    - cron: '13 17 25 08 *'
+    - cron: '12 17 24 10 *'    
+    - cron: '11 17 23 12 *'    
   workflow_dispatch:
 jobs:
   run-etl:
